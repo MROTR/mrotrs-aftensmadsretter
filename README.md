@@ -90,16 +90,12 @@ Du kan åbne `Aftensmadsretter/webapp/index.html` direkte i din browser, eller s
 python3 -m http.server 8000 --directory Aftensmadsretter/webapp
 ```
 
-### 6. Direkte synkronisering til Microsoft To Do (iPhone & Desktop) og Deling
-Microsoft To Do-appen på iPhone opretter desværre kun **én samlet opgave**, når man indsætter flere linjer via udklipsholderen. Derfor har **🛒 Indkøbsliste**-visningen i PWA'en indbygget tre måder at oprette hver vare som sit eget tjekliste-punkt:
-* **🚀 Send direkte til To Do (Microsoft Graph API):**
-  * Forbind én gang via **⚙️ Opsætning** (med OAuth 2.0 PKCE `Application (client) ID` eller et Graph Access Token).
-  * Vælg din ønskede Microsoft To Do-liste direkte i rullemenuen (f.eks. *"Indkøb"*, eller opret en ny liste med **+ Ny liste**).
-  * Tryk **🚀 Send direkte til To Do** — så oprettes alle uafkrydsede varer (i supermarkeds-rækkefølge, ekskl. krydderier medmindre tilvalgt) som individuelle opgaver på ~1 sekund via Microsoft Graph `$batch`.
-* **📲 iPhone Genvej (`Tilføj til To Do`):**
-  * Sender alle linjer direkte til en Apple Genvej (*Opdel tekst ved Nye linjer* → *Gentag med hver* → *Microsoft To Do: Tilføj opgave*), som opretter hver vare enkeltvis i To Do-appen uden API-opsætning.
-* **☑️ Kopiér linjer (Web/PC) & 📤 Del liste… (Web Share API):**
-  * Kopierer rene varelinjer (til indsættelse i `to-do.office.com` på PC/Mac, som automatisk opdeler linjeskift i separate opgaver) eller åbner telefonens indbyggede Del-menu.
+### 6. Eksport til Microsoft To Do (iPhone Genvej & Web) og Deling
+I **🛒 Indkøbsliste**-visningen i PWA'en er der direkte understøttelse af **Microsoft To Do** og mobildeling:
+* **📲 Tilføj til To Do (iPhone Genvej):**
+  * Kopierer alle uafkrydsede varer (i supermarkeds-rækkefølge, ekskl. krydderier medmindre tilvalgt) og starter automatisk iPhone-genvejen `Tilføj Til To-do` (*Get clipboard* → *Split Text by New Lines* → *Repeat with each* → *Microsoft To Do: Add Repeat Item to List*), som opretter hver vare som sin egen opgave i Microsoft To Do.
+* **☑️ Kopiér til To Do & 📤 Del liste… (Web Share API):**
+  * Kopierer rene varelinjer (til indsættelse i `to-do.office.com` på PC/Mac) eller åbner telefonens indbyggede Del-menu.
 
 ---
 

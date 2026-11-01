@@ -10,22 +10,11 @@
   const shoppingNavText = document.getElementById("shoppingNavText");
   const addToPlanDetailBtn = document.getElementById("addToPlanDetailBtn");
   const backFromShoppingBtn = document.getElementById("backFromShoppingBtn");
-  const todoDirectSendBtn = document.getElementById("todoDirectSendBtn");
   const iosShortcutBtn = document.getElementById("iosShortcutBtn");
   const todoExportBtn = document.getElementById("todoExportBtn");
   const shareShoppingBtn = document.getElementById("shareShoppingBtn");
   const copyShoppingBtn = document.getElementById("copyShoppingBtn");
   const clearShoppingBtn = document.getElementById("clearShoppingBtn");
-  const todoModal = document.getElementById("todoModal");
-  const closeTodoModalBtn = document.getElementById("closeTodoModalBtn");
-  const todoRedirectUriCode = document.getElementById("todoRedirectUriCode");
-  const copyRedirectUriBtn = document.getElementById("copyRedirectUriBtn");
-  const todoClientIdInput = document.getElementById("todoClientIdInput");
-  const todoOAuthLoginBtn = document.getElementById("todoOAuthLoginBtn");
-  const todoSaveClientIdBtn = document.getElementById("todoSaveClientIdBtn");
-  const todoManualTokenInput = document.getElementById("todoManualTokenInput");
-  const todoSaveTokenBtn = document.getElementById("todoSaveTokenBtn");
-  const todoDisconnectBtn = document.getElementById("todoDisconnectBtn");
   const recipeGrid = document.getElementById("recipeGrid");
   const searchInput = document.getElementById("searchInput");
   const tagFilters = document.getElementById("tagFilters");
@@ -660,55 +649,30 @@
     });
 
     const includePantryInExport = localStorage.getItem("todo_include_pantry") === "true";
-    const isConnected = hasTodoToken();
-    const savedListId = localStorage.getItem("todo_selected_list_id") || "";
     const todoLinesCount = buildMicrosoftToDoLines().length;
 
     let html = `
       <div class="todo-banner">
         <div class="todo-banner-top">
           <div>
-            <strong>☑️ Microsoft To Do (separate opgaver pr. vare):</strong>
-            <span class="todo-status-pill ${isConnected ? "connected" : ""}" id="todoStatusPill">
-              ${isConnected ? "🟢 Forbundet til Microsoft Graph" : "⚪ Ikke forbundet endnu"}
+            <strong>☑️ Microsoft To Do & Deling:</strong>
+            <span style="color:var(--text-muted);">
+              Tryk på <strong>📲 Tilføj til To Do (iPhone Genvej)</strong> for at kopiere de ${todoLinesCount} uafkrydsede varer og køre genvejen <code>Tilføj Til To-do</code>, som opretter hver vare som sin egen opgave i Microsoft To Do.
             </span>
-            <div style="color:var(--text-muted); margin-top:4px; font-size:0.82rem;">
-              Microsoft To Do-appen på iPhone opretter kun 1 samlet opgave ved almindelig indsætning (paste).
-              Brug <strong>🚀 Send direkte til To Do</strong> (opretter hver vare enkeltvis via API) eller <strong>📲 iPhone Genvej</strong>!
-            </div>
           </div>
           <div class="todo-banner-actions">
-            ${isConnected ? `
-              <select id="todoListSelect" class="todo-select" title="Vælg hvilken Microsoft To Do-liste varerne skal oprettes i">
-                <option value="">Indlæser To Do-lister…</option>
-              </select>
-              <button type="button" id="todoNewListBtn" class="secondary-btn" title="Opret en ny indkøbsliste i Microsoft To Do">+ Ny liste</button>
-              <button type="button" id="todoBannerSendBtn" class="todo-primary-btn">
-                🚀 Opret ${todoLinesCount} opgaver i To Do
-              </button>
-            ` : `
-              <button type="button" id="todoBannerConnectBtn" class="todo-primary-btn">
-                🔗 Forbind Microsoft To Do (1-klik synk)
-              </button>
-            `}
-            <button type="button" id="todoConfigBtn" class="secondary-btn">⚙️ Opsætning</button>
-          </div>
-        </div>
-        <div class="todo-banner-actions" style="border-top:1px solid rgba(56,189,248,0.18); padding-top:8px; justify-content:space-between;">
-          <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font-size:0.83rem;">
-            <input type="checkbox" id="includePantryToggle" ${includePantryInExport ? "checked" : ""} />
-            <span>Medtag krydderier/basisvarer (${todoLinesCount} uafkrydsede varer klar)</span>
-          </label>
-          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-            <a href="ms-todo://" style="color:var(--blue); font-weight:600; text-decoration:none; font-size:0.82rem;">
+            <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font-size:0.83rem;">
+              <input type="checkbox" id="includePantryToggle" ${includePantryInExport ? "checked" : ""} />
+              <span>Medtag krydderier/basisvarer ved eksport (${todoLinesCount} varer)</span>
+            </label>
+            <a href="ms-todo://" style="color:var(--blue); font-weight:600; text-decoration:none; font-size:0.83rem;">
               📱 Åbn To Do-app
             </a>
-            <a href="https://to-do.office.com/tasks/" target="_blank" rel="noopener" style="color:var(--blue); font-weight:600; text-decoration:none; font-size:0.82rem;">
-              🌐 Åbn To Do Web ↗
+            <a href="https://to-do.office.com/tasks/" target="_blank" rel="noopener" style="color:var(--blue); font-weight:600; text-decoration:none; font-size:0.83rem;">
+              🌐 To Do Web ↗
             </a>
           </div>
         </div>
-        <div id="todoFeedbackBox" class="todo-feedback hidden"></div>
       </div>
       <div class="content-card" style="margin-bottom:16px;">
         <h3>Valgte retter i ugeplanen (${plan.length})</h3>
@@ -724,30 +688,6 @@
         localStorage.setItem("todo_include_pantry", e.target.checked ? "true" : "false");
         renderShoppingView();
       });
-    }
-
-    const todoConfigBtn = document.getElementById("todoConfigBtn");
-    if (todoConfigBtn) {
-      todoConfigBtn.addEventListener("click", openTodoModal);
-    }
-    const todoBannerConnectBtn = document.getElementById("todoBannerConnectBtn");
-    if (todoBannerConnectBtn) {
-      todoBannerConnectBtn.addEventListener("click", openTodoModal);
-    }
-    const todoBannerSendBtn = document.getElementById("todoBannerSendBtn");
-    if (todoBannerSendBtn) {
-      todoBannerSendBtn.addEventListener("click", () => sendItemsDirectlyToMicrosoftToDo());
-    }
-    const todoNewListBtn = document.getElementById("todoNewListBtn");
-    if (todoNewListBtn) {
-      todoNewListBtn.addEventListener("click", createNewTodoListPrompt);
-    }
-    const todoListSelect = document.getElementById("todoListSelect");
-    if (todoListSelect) {
-      todoListSelect.addEventListener("change", (e) => {
-        localStorage.setItem("todo_selected_list_id", e.target.value);
-      });
-      populateTodoListsDropdown(todoListSelect, savedListId);
     }
 
     const chipsContainer = document.getElementById("planChipsContainer");
@@ -928,384 +868,6 @@
     return lines.join("\n");
   }
 
-  // --- MICROSOFT GRAPH API (DIRECT TO DO INTEGRATION + PKCE OAUTH) ---
-  function getRedirectUri() {
-    return window.location.origin + window.location.pathname;
-  }
-
-  function hasTodoToken() {
-    return !!(localStorage.getItem("todo_access_token") || localStorage.getItem("todo_refresh_token"));
-  }
-
-  function showTodoFeedback(msg, isError) {
-    const box = document.getElementById("todoFeedbackBox");
-    if (!box) {
-      if (isError) alert(msg);
-      return;
-    }
-    box.textContent = msg;
-    box.className = "todo-feedback" + (isError ? " error" : "");
-  }
-
-  function base64UrlEncode(buffer) {
-    const bytes = new Uint8Array(buffer);
-    let binary = "";
-    for (let i = 0; i < bytes.byteLength; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-  }
-
-  async function startTodoOAuthLogin() {
-    const clientId = (todoClientIdInput.value || localStorage.getItem("todo_client_id") || "").trim();
-    if (!clientId) {
-      alert("Indtast dit Application (client) ID først (se 1-minuts guiden ovenfor), eller brug Metode 2 / Metode 3.");
-      return;
-    }
-    localStorage.setItem("todo_client_id", clientId);
-
-    const randomBytes = new Uint8Array(32);
-    window.crypto.getRandomValues(randomBytes);
-    const codeVerifier = base64UrlEncode(randomBytes);
-    localStorage.setItem("todo_pkce_verifier", codeVerifier);
-
-    const digest = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(codeVerifier));
-    const codeChallenge = base64UrlEncode(digest);
-
-    const params = new URLSearchParams({
-      client_id: clientId,
-      response_type: "code",
-      redirect_uri: getRedirectUri(),
-      response_mode: "query",
-      scope: "openid profile Tasks.ReadWrite offline_access",
-      code_challenge: codeChallenge,
-      code_challenge_method: "S256",
-      state: "todo_oauth_callback"
-    });
-
-    window.location.href = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?${params.toString()}`;
-  }
-
-  async function handleOAuthRedirectIfPresent() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-    const state = urlParams.get("state");
-    const error = urlParams.get("error");
-
-    if (error && state === "todo_oauth_callback") {
-      const desc = urlParams.get("error_description") || error;
-      history.replaceState(null, "", window.location.pathname + "#indkoebsliste");
-      showShoppingView();
-      showTodoFeedback(`Microsoft Login fejl: ${desc}`, true);
-      return;
-    }
-
-    if (!code || state !== "todo_oauth_callback") return;
-
-    const clientId = localStorage.getItem("todo_client_id") || "";
-    const codeVerifier = localStorage.getItem("todo_pkce_verifier") || "";
-    history.replaceState(null, "", window.location.pathname + "#indkoebsliste");
-
-    if (!clientId || !codeVerifier) return;
-
-    try {
-      const body = new URLSearchParams({
-        client_id: clientId,
-        grant_type: "authorization_code",
-        code,
-        redirect_uri: getRedirectUri(),
-        code_verifier: codeVerifier
-      });
-
-      const res = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString()
-      });
-      const data = await res.json();
-      if (!res.ok || !data.access_token) {
-        throw new Error(data.error_description || data.error || "Kunne ikke hente token");
-      }
-      localStorage.setItem("todo_access_token", data.access_token);
-      if (data.refresh_token) {
-        localStorage.setItem("todo_refresh_token", data.refresh_token);
-      }
-      if (data.expires_in) {
-        localStorage.setItem("todo_token_expires_at", String(Date.now() + Number(data.expires_in) * 1000));
-      }
-      showShoppingView();
-      showTodoFeedback("✓ Forbundet til Microsoft To Do! Vælg din liste og tryk 'Send direkte til To Do'.", false);
-    } catch (err) {
-      showShoppingView();
-      showTodoFeedback(`Kunne ikke fuldføre Microsoft login: ${err.message}`, true);
-    }
-  }
-
-  async function getValidTodoAccessToken() {
-    const token = localStorage.getItem("todo_access_token") || "";
-    const expiresAt = Number(localStorage.getItem("todo_token_expires_at") || "0");
-    const refreshToken = localStorage.getItem("todo_refresh_token") || "";
-    const clientId = localStorage.getItem("todo_client_id") || "";
-
-    if (token && (!expiresAt || Date.now() < expiresAt - 60000)) {
-      return token;
-    }
-
-    if (refreshToken && clientId) {
-      try {
-        const body = new URLSearchParams({
-          client_id: clientId,
-          grant_type: "refresh_token",
-          refresh_token: refreshToken,
-          scope: "openid profile Tasks.ReadWrite offline_access"
-        });
-        const res = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: body.toString()
-        });
-        const data = await res.json();
-        if (res.ok && data.access_token) {
-          localStorage.setItem("todo_access_token", data.access_token);
-          if (data.refresh_token) {
-            localStorage.setItem("todo_refresh_token", data.refresh_token);
-          }
-          if (data.expires_in) {
-            localStorage.setItem("todo_token_expires_at", String(Date.now() + Number(data.expires_in) * 1000));
-          }
-          return data.access_token;
-        }
-      } catch (e) {}
-    }
-
-    return token;
-  }
-
-  async function fetchTodoLists() {
-    const token = await getValidTodoAccessToken();
-    if (!token) throw new Error("Ikke logget ind");
-    const res = await fetch("https://graph.microsoft.com/v1.0/me/todo/lists", {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    if (res.status === 401) {
-      localStorage.removeItem("todo_access_token");
-      throw new Error("Adgangstoken er udløbet. Åbn Opsætning og log ind igen.");
-    }
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error((data.error && data.error.message) || "Kunne ikke hente To Do-lister");
-    }
-    return data.value || [];
-  }
-
-  async function populateTodoListsDropdown(selectEl, savedListId) {
-    try {
-      const lists = await fetchTodoLists();
-      selectEl.innerHTML = "";
-      if (!lists.length) {
-        selectEl.innerHTML = `<option value="">Ingen lister fundet</option>`;
-        return;
-      }
-      let chosenId = savedListId;
-      if (!chosenId || !lists.some((l) => l.id === chosenId)) {
-        const preferred = lists.find((l) => /indkøb|grocer|shop/i.test(l.displayName || ""));
-        chosenId = preferred ? preferred.id : lists[0].id;
-        localStorage.setItem("todo_selected_list_id", chosenId);
-      }
-      lists.forEach((l) => {
-        const opt = document.createElement("option");
-        opt.value = l.id;
-        opt.textContent = `📋 ${l.displayName}`;
-        if (l.id === chosenId) opt.selected = true;
-        selectEl.appendChild(opt);
-      });
-    } catch (err) {
-      selectEl.innerHTML = `<option value="">⚠️ ${err.message}</option>`;
-      showTodoFeedback(err.message, true);
-    }
-  }
-
-  async function createNewTodoListPrompt() {
-    const name = prompt("Navn på ny Microsoft To Do-liste:", "Indkøbsliste");
-    if (!name || !name.trim()) return;
-    try {
-      const token = await getValidTodoAccessToken();
-      const res = await fetch("https://graph.microsoft.com/v1.0/me/todo/lists", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ displayName: name.trim() })
-      });
-      const data = await res.json();
-      if (!res.ok || !data.id) {
-        throw new Error((data.error && data.error.message) || "Kunne ikke oprette liste");
-      }
-      localStorage.setItem("todo_selected_list_id", data.id);
-      renderShoppingView();
-      showTodoFeedback(`✓ Listen "${data.displayName}" blev oprettet i Microsoft To Do!`, false);
-    } catch (err) {
-      showTodoFeedback(`Fejl ved oprettelse af liste: ${err.message}`, true);
-    }
-  }
-
-  async function sendItemsDirectlyToMicrosoftToDo() {
-    if (!hasTodoToken()) {
-      openTodoModal();
-      return;
-    }
-    const todoLines = buildMicrosoftToDoLines();
-    if (!todoLines.length) {
-      showTodoFeedback("Ingen uafkrydsede varer at sende til Microsoft To Do.", true);
-      return;
-    }
-
-    const selectEl = document.getElementById("todoListSelect");
-    const listId = (selectEl && selectEl.value) || localStorage.getItem("todo_selected_list_id") || "";
-    if (!listId) {
-      showTodoFeedback("Vælg først en Microsoft To Do-liste i rullemenuen (eller tryk '+ Ny liste').", true);
-      return;
-    }
-    const listName = selectEl && selectEl.selectedOptions[0]
-      ? selectEl.selectedOptions[0].textContent.replace(/^📋\s*/, "")
-      : "Microsoft To Do";
-
-    const btns = [todoDirectSendBtn, document.getElementById("todoBannerSendBtn")].filter(Boolean);
-    btns.forEach((b) => {
-      b.disabled = true;
-      b.textContent = `⏳ Opretter ${todoLines.length} opgaver…`;
-    });
-
-    try {
-      const token = await getValidTodoAccessToken();
-      let createdCount = 0;
-
-      // Microsoft Graph $batch supports up to 20 requests per batch call
-      const chunkSize = 20;
-      for (let i = 0; i < todoLines.length; i += chunkSize) {
-        const chunk = todoLines.slice(i, i + chunkSize);
-        const batchRequests = chunk.map((lineText, idx) => ({
-          id: String(idx + 1),
-          method: "POST",
-          url: `/me/todo/lists/${encodeURIComponent(listId)}/tasks`,
-          headers: { "Content-Type": "application/json" },
-          body: { title: lineText }
-        }));
-
-        const res = await fetch("https://graph.microsoft.com/v1.0/$batch", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ requests: batchRequests })
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error((data.error && data.error.message) || "Batch-oprettelse fejlede");
-        }
-        (data.responses || []).forEach((r) => {
-          if (r.status >= 200 && r.status < 300) createdCount += 1;
-        });
-      }
-
-      showTodoFeedback(
-        `✓ ${createdCount} separate opgaver blev oprettet direkte i "${listName}" i Microsoft To Do!`,
-        false
-      );
-      btns.forEach((b) => {
-        b.disabled = false;
-        b.textContent = `✓ ${createdCount} opgaver sendt!`;
-      });
-      setTimeout(() => {
-        if (todoDirectSendBtn) todoDirectSendBtn.textContent = "🚀 Send direkte til To Do";
-        const bannerBtn = document.getElementById("todoBannerSendBtn");
-        if (bannerBtn) bannerBtn.textContent = `🚀 Opret ${buildMicrosoftToDoLines().length} opgaver i To Do`;
-      }, 3500);
-    } catch (err) {
-      btns.forEach((b) => {
-        b.disabled = false;
-        b.textContent = "🚀 Send direkte til To Do";
-      });
-      showTodoFeedback(`Fejl ved eksport til Microsoft To Do: ${err.message}`, true);
-    }
-  }
-
-  function openTodoModal() {
-    if (!todoModal) return;
-    if (todoRedirectUriCode) {
-      todoRedirectUriCode.textContent = getRedirectUri();
-    }
-    if (todoClientIdInput) {
-      todoClientIdInput.value = localStorage.getItem("todo_client_id") || "";
-    }
-    if (todoManualTokenInput) {
-      todoManualTokenInput.value = "";
-    }
-    todoModal.classList.remove("hidden");
-  }
-
-  function closeTodoModal() {
-    if (todoModal) todoModal.classList.add("hidden");
-  }
-
-  if (closeTodoModalBtn) {
-    closeTodoModalBtn.addEventListener("click", closeTodoModal);
-  }
-  if (todoModal) {
-    todoModal.addEventListener("click", (e) => {
-      if (e.target === todoModal) closeTodoModal();
-    });
-  }
-  if (copyRedirectUriBtn) {
-    copyRedirectUriBtn.addEventListener("click", () => {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(getRedirectUri());
-        copyRedirectUriBtn.textContent = "✓ Kopieret!";
-        setTimeout(() => { copyRedirectUriBtn.textContent = "📋 Kopiér URI"; }, 2000);
-      }
-    });
-  }
-  if (todoSaveClientIdBtn) {
-    todoSaveClientIdBtn.addEventListener("click", () => {
-      const cid = (todoClientIdInput.value || "").trim();
-      localStorage.setItem("todo_client_id", cid);
-      todoSaveClientIdBtn.textContent = "✓ Gemt!";
-      setTimeout(() => { todoSaveClientIdBtn.textContent = "Gem Client ID"; }, 1800);
-    });
-  }
-  if (todoOAuthLoginBtn) {
-    todoOAuthLoginBtn.addEventListener("click", startTodoOAuthLogin);
-  }
-  if (todoSaveTokenBtn) {
-    todoSaveTokenBtn.addEventListener("click", () => {
-      const raw = (todoManualTokenInput.value || "").trim().replace(/^Bearer\s+/i, "");
-      if (!raw) {
-        alert("Indsæt en gyldig Microsoft Graph Access Token.");
-        return;
-      }
-      localStorage.setItem("todo_access_token", raw);
-      localStorage.removeItem("todo_token_expires_at");
-      closeTodoModal();
-      renderShoppingView();
-      showTodoFeedback("✓ Access Token gemt! Henter dine Microsoft To Do-lister…", false);
-    });
-  }
-  if (todoDisconnectBtn) {
-    todoDisconnectBtn.addEventListener("click", () => {
-      localStorage.removeItem("todo_access_token");
-      localStorage.removeItem("todo_refresh_token");
-      localStorage.removeItem("todo_token_expires_at");
-      closeTodoModal();
-      renderShoppingView();
-    });
-  }
-
-  if (todoDirectSendBtn) {
-    todoDirectSendBtn.addEventListener("click", () => sendItemsDirectlyToMicrosoftToDo());
-  }
-
   if (iosShortcutBtn) {
     iosShortcutBtn.addEventListener("click", async () => {
       const todoLines = buildMicrosoftToDoLines();
@@ -1335,9 +897,9 @@
     if (navigator.clipboard) {
       await navigator.clipboard.writeText(payload);
     }
-    todoExportBtn.textContent = `✓ ${todoLines.length} linjer kopieret (indsæt i To Do Web/PC)!`;
+    todoExportBtn.textContent = `✓ ${todoLines.length} varer kopieret til To Do!`;
     setTimeout(() => {
-      todoExportBtn.textContent = "☑️ Kopiér linjer (Web/PC)";
+      todoExportBtn.textContent = "☑️ Kopiér til To Do";
     }, 3500);
   });
 
@@ -1405,5 +967,4 @@
   }
   window.addEventListener("hashchange", handleHashNavigation);
   handleHashNavigation();
-  handleOAuthRedirectIfPresent();
 })();
