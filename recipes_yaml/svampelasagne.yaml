@@ -1,0 +1,197 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: svampelasagne
+title: Svampelasagne
+source: https://www.valdemarsro.dk/svampelasagne/
+image: ../Files/images/svampelasagne.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 120
+  active_min: 90
+tags:
+  - vegetar
+  - italiensk
+  - svampe
+  - lasagne
+  - ovnret
+notes: "Cremet svampelasagne med hjemmelavet mornaysauce og sprød panko/parmesan-top. Salat med sennepsvinaigrette kan slås til/fra som modul."
+
+components:
+  - id: svampesauce_base
+    title: Til svampesaucen
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.85
+    ingredients:
+      - ref: karl_johan
+        item: tørrede svampe
+        label: tørrede karl johan-svampe
+        amount: 20
+        unit: g
+        prep: udblødt efter anvisning og afdryppet
+      - ref: olie
+        item: olivenolie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: sauce_smoer
+        item: smør
+        amount: 25
+        unit: g
+      - ref: champignon
+        item: champignon
+        amount: 400
+        unit: g
+        prep: skåret i kvarte
+      - ref: loeg
+        item: løg
+        amount: 1
+        unit: stk
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 3
+        unit: fed
+        prep: fintrevet
+      - ref: rosmarin
+        item: rosmarin
+        label: tørret rosmarin
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: spinat
+        item: spinat
+        amount: 300
+        unit: g
+      - ref: hvidvin
+        item: hvidvin
+        amount: 200
+        unit: ml
+        display_unit: dl
+      - ref: floede
+        item: piskefløde
+        amount: 200
+        unit: ml
+        display_unit: dl
+      - ref: citron
+        item: citron
+        label: økologisk citron (fintrevet skal og lidt saft)
+        amount: 1
+        unit: stk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: mornay_base
+    title: Mornaysauce & lasagneplader
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: mornay_smoer
+        item: smør
+        amount: 25
+        unit: g
+      - ref: mel
+        item: hvedemel
+        amount: 25
+        unit: g
+      - ref: maelk
+        item: letmælk
+        label: mælk
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: muskat
+        item: muskatnød
+        amount: 1
+        unit: knivspids
+      - ref: mozzarella
+        item: frisk mozzarella
+        amount: 125
+        unit: g
+      - ref: lasagneplader
+        item: frisk pasta
+        label: friske lasagneplader
+        amount: 200
+        unit: g
+      - ref: panko
+        item: rasp
+        label: pankorasp
+        amount: 50
+        unit: g
+      - ref: parmesan
+        item: parmesan
+        label: parmesan (eller anden hård ost)
+        amount: 50
+        unit: g
+        prep: fintrevet
+
+  - id: salat_side
+    title: Til servering (salat & dressing - valgfrit)
+    role: side
+    default_enabled: false
+    ingredients:
+      - ref: salat
+        item: blandet salat
+        amount: 125
+        unit: g
+        optional: true
+      - ref: timian
+        item: timian
+        label: frisk timian
+        amount: 0.5
+        unit: håndfuld
+        optional: true
+      - ref: dres_olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        optional: true
+      - ref: dres_citron
+        item: citronsaft
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        optional: true
+      - ref: honning
+        item: honning
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        optional: true
+      - ref: sennep
+        item: dijonsennep
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        optional: true
+
+steps:
+  - section: Svampesauce
+    component_id: svampesauce_base
+    items:
+      - "Tænd ovnen på 200°C varmluft."
+      - "Læg {karl_johan} i blød efter anvisningen på pakken. Hæld væden fra og lad dem dryppe af."
+      - "Varm {olie} op på en stor pande ved høj varme. Smelt {sauce_smoer} og lad det bruse af."
+      - "Steg {champignon} 6–8 minutter, til de får stegeskorpe og væden er fordampet."
+      - "Skru ned til middel varme. Tilsæt {loeg}, {hvidloeg}, {rosmarin}, {spinat} og de udblødte svampe. Varm, til løgene er bløde og spinaten er faldet sammen."
+      - "Hæld {hvidvin} og {floede} i. Bring kort i kog. Smag til med skal og lidt saft fra {citron}, salt og friskkværnet peber."
+  - section: Mornaysauce, samling og bagning
+    component_id: mornay_base
+    items:
+      - "Smelt {mornay_smoer} i en gryde ved middel varme. Pisk {mel} i, til det samler sig."
+      - "Pisk {maelk} i lidt ad gangen, til saucen er glat og tykner."
+      - "Pisk {mozzarella} i, til den smelter. Smag til med {muskat}, salt og peber."
+      - "Fordel et tyndt lag svampesauce i et smurt ovnfast fad. Læg {lasagneplader} på, fordel lidt mornaysauce, og fortsæt lag for lag. Slut med mornaysauce."
+      - "Drys {panko} og {parmesan} over. Bag cirka 15 minutter, til lasagnepladerne er møre, og toppen er gylden og sprød."
+  - section: Servering (valgfrit)
+    component_id: salat_side
+    items:
+      - "Rør {dres_olie}, {dres_citron}, {honning} og {sennep} sammen. Smag til med salt og peber."
+      - "Vend dressingen med {salat} og top evt. med {timian}. Servér ved siden af lasagnen."

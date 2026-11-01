@@ -1,0 +1,145 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: vegetar-korma-med-blomkaal-og-kikaerter
+title: Vegetar Korma med blomkål og kikærter
+source: https://www.valdemarsro.dk/vegetar-korma/
+image: ../Files/images/vegetar-korma-med-blomkaal-og-kikaerter.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 30
+tags:
+  - vegetar
+  - indisk
+  - kikærter
+  - blomkål
+  - hurtig
+  - gryderet
+notes: "Mild og cremet vegetar korma med blomkål, kikærter og mandler. Ris er adskilt i eget modul."
+
+components:
+  - id: korma_base
+    title: Til korma
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        label: olie
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakkede
+      - ref: garam_masala
+        item: garam masala
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: chili
+        item: chiliflager
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: gurkemeje
+        item: gurkemeje
+        label: stødt gurkemeje
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        prep: finthakkede
+      - ref: ingefaer
+        item: ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: limesaft
+        item: limesaft
+        label: saft af 1 lime
+        amount: 1
+        unit: stk
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: ml
+        scaling: whole_unit
+      - ref: blomkaal
+        item: blomkål
+        amount: 1
+        unit: stk
+        prep: delt i små buketter
+      - ref: kikaerter
+        item: kikærter_dåse
+        label: kikærter (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænede og skyllede
+        scaling: whole_unit
+      - ref: tomatpure
+        item: tomatpuré
+        label: koncentreret tomatpuré
+        amount: 75
+        unit: g
+      - ref: yoghurt
+        item: græsk yoghurt 10
+        label: græsk yoghurt 10 %
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: mandler
+        item: mandler
+        amount: 75
+        unit: g
+        prep: smuttede og grofthakkede
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket (valgfrit)
+        optional: true
+
+steps:
+  - section: Vegetar Korma
+    component_id: korma_base
+    items:
+      - "Kog {ris} efter anvisningen på pakken."
+      - "Varm {olie} op i en gryde ved middel varme. Sautér {loeg} 6–8 minutter, til de er bløde og klare."
+      - "Tilsæt {garam_masala}, {chili}, {gurkemeje}, {hvidloeg} og {ingefaer}. Rør 30–60 sekunder, til det dufter."
+      - "Tilsæt {limesaft} og {kokosmaelk} og bring i kog."
+      - "Tilsæt {blomkaal}, {kikaerter} og {tomatpure}. Læg låg på og lad det simre 10–15 minutter, til blomkålen er mør."
+      - "Sluk for varmen. Rør {yoghurt} og halvdelen af {mandler} i."
+      - "Smag til med salt og friskkværnet peber."
+      - "Servér med ris, resten af mandlerne og evt. {koriander}."

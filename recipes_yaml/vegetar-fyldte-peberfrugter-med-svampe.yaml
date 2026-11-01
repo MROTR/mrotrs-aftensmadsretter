@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: vegetar-fyldte-peberfrugter-med-svampe
+title: Vegetar fyldte peberfrugter med svampe
+source: https://www.valdemarsro.dk/vegetar-fyldte-peberfrugter/
+image: ../Files/images/vegetar-fyldte-peberfrugter-med-svampe.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 45
+  active_min: 25
+tags:
+  - vegetar
+  - ovnret
+  - svampe
+  - bønner
+  - peberfrugt
+notes: "Bagte peberfrugter med cremet svampe- og kidneybønnefyld gratineret med cheddar."
+
+components:
+  - id: peberfrugt_base
+    title: Til fyld og bagning
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: champignon
+        item: champignon
+        amount: 200
+        unit: g
+        prep: skåret i kvarte
+      - ref: roedloeg
+        item: rødløg
+        amount: 1
+        unit: stk
+        prep: finthakket
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: tomater
+        item: hakkede tomater
+        amount: 400
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: kidneyboenner
+        item: bønner_dåse
+        label: kidneybønner (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænede og skyllede
+        scaling: whole_unit
+      - ref: floedeost
+        item: flødeost
+        label: flødeost (naturel)
+        amount: 75
+        unit: g
+      - ref: peberfrugter
+        item: peberfrugt
+        label: røde peberfrugter
+        amount: 4
+        unit: stk
+        grams_override: 600
+        prep: halveret og uden kerner
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: cheddar
+        item: cheddar
+        amount: 125
+        unit: g
+        prep: groftrevet
+      - ref: persille
+        item: persille
+        label: bredbladet persille
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+steps:
+  - section: Fyldte peberfrugter
+    component_id: peberfrugt_base
+    items:
+      - "Tænd ovnen på 175°C."
+      - "Varm {olie} op på en pande ved høj varme. Steg {champignon} 5–7 minutter, til de får farve og væden er fordampet."
+      - "Skru ned til middel varme. Tilsæt {roedloeg}, {spidskommen} og {koriander_stoedt} og sautér 3–4 minutter, til løgene er bløde."
+      - "Tilsæt {tomater}, {kidneyboenner} og {floedeost}. Rør, til flødeosten smelter, og fyldet er cremet. Smag til med salt og peber."
+      - "Læg {peberfrugter} i et let smurt ovnfast fad. Fyld dem med svampe- og bønnefyldet."
+      - "Hæld {bouillon} i bunden af fadet. Bag 15 minutter."
+      - "Tag fadet ud, drys {cheddar} over og bag 10–15 minutter mere, til osten er smeltet og gylden."
+      - "Server med {persille}."

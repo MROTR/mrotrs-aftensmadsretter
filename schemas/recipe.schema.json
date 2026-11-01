@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Aftensmadsret (Recipe Schema v2)",
+  "description": "Structured recipe format with modular components, nutrition IDs, hydration/cooked weights, and smart scaling.",
+  "type": "object",
+  "required": ["id", "title", "servings", "components", "steps"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Kebab-case identifier matching filename (e.g. 'dhal')"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title in Danish (e.g. 'Dhal')"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source URL or attribution"
+    },
+    "image": {
+      "type": "string",
+      "description": "Image URL or relative path"
+    },
+    "servings": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Default number of portions the recipe yields"
+    },
+    "standard_kcal_per_portion": {
+      "type": "integer",
+      "default": 650,
+      "description": "Target kcal for a normalized standard dinner portion"
+    },
+    "time": {
+      "type": "object",
+      "properties": {
+        "total_min": { "type": ["integer", "string"] },
+        "active_min": { "type": ["integer", "string"] }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional assumptions or general cooking notes"
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "role", "ingredients"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "title": {
+            "type": "string",
+            "description": "Section title (e.g. 'Til dhal', 'Til raita', 'Til servering (ris)')"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["base", "carb", "side", "optional", "topping"],
+            "description": "Role of this group in the meal and nutrition breakdowns"
+          },
+          "default_enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether this component is included by default in standard meal calculation"
+          },
+          "evaporation_factor": {
+            "type": "number",
+            "default": 1.0,
+            "description": "Multiplier applied to liquids/sauces after simmering (e.g. 0.90 for 10% reduction)"
+          },
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["item"],
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "description": "Optional token ID to reference in step text as {ref}"
+                },
+                "item": {
+                  "type": "string",
+                  "description": "Key in nutrition_db.json -> ingredients"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Display name override in Danish if different from item key"
+                },
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Numeric amount in canonical unit ('g', 'ml', 'stk') or kitchen unit; null for 'to taste'"
+                },
+                "range_text": {
+                  "type": "string",
+                  "description": "Optional range representation like '2–3'"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": ["g", "kg", "ml", "dl", "l", "tsk", "spsk", "stk", "fed", "dåse", "håndfuld", "knivspids", "bundt", "pakke", ""],
+                  "default": ""
+                },
+                "display_unit": {
+                  "type": "string",
+                  "enum": ["auto", "g", "kg", "ml", "dl", "l", "tsk", "spsk", "stk", "fed", "dåse", "håndfuld", "knivspids"],
+                  "description": "Preferred Danish kitchen display unit (when amount is stored canonically in g/ml/stk)"
+                },
+                "grams_override": {
+                  "type": "number",
+                  "description": "Explicit raw weight in grams if different from standard unit weight"
+                },
+                "prep": {
+                  "type": "string",
+                  "description": "Preparation note (e.g. 'finthakket', 'drænet og skyllet')"
+                },
+                "optional": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "scaling": {
+                  "type": "string",
+                  "enum": ["linear", "sublinear", "fixed", "whole_unit"],
+                  "default": "linear"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["items"],
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Optional step subsection heading (e.g. 'Raita')"
+          },
+          "component_id": {
+            "type": "string",
+            "description": "Optional link to a component id so steps dim if component is toggled off"
+          },
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

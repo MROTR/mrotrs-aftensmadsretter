@@ -1,0 +1,178 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: mexikansk-risret
+title: Mexikansk risret
+source: https://www.valdemarsro.dk/mexicansk-risret/
+image: ../Files/images/mexikansk-risret.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 45
+  active_min: 30
+tags:
+  - vegetar
+  - mexicansk
+  - ris
+  - bønner
+  - one-pot
+notes: "One-pot mexicansk risret med sorte bønner og grøntsager. Topping med avocado og cheddar kan slås til/fra som modul."
+
+components:
+  - id: risret_base
+    title: Til risretten
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakkede
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        prep: finthakkede
+      - ref: guleroedder
+        item: gulerødder
+        amount: 2
+        unit: stk
+        prep: skåret i små tern
+      - ref: squash
+        item: squash
+        amount: 1
+        unit: stk
+        prep: groftrevet
+      - ref: chili
+        item: chili
+        label: rød chili
+        amount: 0.5
+        unit: stk
+        prep: uden kerner og finthakket
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: kanel
+        item: kanel
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: paprika
+        item: paprika
+        label: røget paprika
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: g
+        prep: skyllet
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 600
+        unit: ml
+        display_unit: dl
+      - ref: tomater
+        item: hakkede tomater
+        amount: 400
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: boenner
+        item: bønner_dåse
+        label: sorte bønner (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænede og skyllede
+        scaling: whole_unit
+      - ref: majs
+        item: majs
+        amount: 140
+        unit: g
+        prep: fra dåse eller frost
+      - ref: peberfrugter
+        item: peberfrugt
+        label: røde peberfrugter
+        amount: 2
+        unit: stk
+        prep: skåret i små tern
+      - ref: cherrytomater
+        item: cherrytomat
+        label: cherrytomater
+        amount: 125
+        unit: g
+        prep: skåret i både
+      - item: salt
+        label: Flagesalt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: topping_side
+    title: Til servering (avocado & cheddar)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: avocado
+        item: avocado
+        amount: 1
+        unit: stk
+        grams_override: 180
+        prep: skåret i tern
+      - ref: cheddar
+        item: cheddar
+        amount: 125
+        unit: g
+        prep: fintrevet
+      - ref: sriracha
+        item: sriracha
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: efter smag
+      - ref: lime
+        item: lime
+        amount: 1
+        unit: stk
+        prep: skåret i både
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+
+steps:
+  - section: Mexikansk risret
+    component_id: risret_base
+    items:
+      - "Varm {olie} op i en stor gryde ved middel varme. Sautér {loeg}, {hvidloeg} og {guleroedder} 6–8 minutter, til løgene er bløde og klare."
+      - "Tilsæt {squash}, {chili}, {spidskommen}, {koriander_stoedt}, {kanel} og {paprika}. Rør 1 minut, til det dufter."
+      - "Skyl {ris} grundigt og rør dem i gryden."
+      - "Hæld {bouillon} og {tomater} i og bring i kog under omrøring."
+      - "Skru ned, læg låg på og lad retten simre 15 minutter."
+      - "Tilsæt {boenner}, {majs} og {peberfrugter}. Bring kort tilbage til kogepunktet."
+      - "Sluk for varmen, læg låg på og lad retten trække 15 minutter, til risene er møre og væsken er suget op."
+      - "Vend {cherrytomater} i. Smag til med flagesalt og friskkværnet peber."
+      - "Servér med {avocado}, {cheddar}, {sriracha}, {lime} og {koriander}."

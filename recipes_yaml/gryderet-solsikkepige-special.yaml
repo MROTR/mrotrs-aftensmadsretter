@@ -1,0 +1,111 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: gryderet-solsikkepige-special
+title: Gryderet (Solsikkepige special)
+source: Egen opskrift
+image: ""
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 40
+  active_min: 15
+tags:
+  - vegetar
+  - vegansk
+  - gryderet
+  - bønner
+  - kartofler
+notes: "Standardmængder til 4 personer er sat ind, så retten kan skaleres og næringsberegnes automatisk."
+
+components:
+  - id: gryde_base
+    title: Til gryden
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: grofthakket
+      - ref: peberfrugt
+        item: peberfrugt
+        amount: 1
+        unit: stk
+        prep: skåret i tern
+      - ref: guleroedder
+        item: gulerødder
+        amount: 3
+        unit: stk
+        prep: skåret i skiver eller tern
+      - ref: kartofler
+        item: kartofler
+        amount: 500
+        unit: g
+        prep: skåret i tern
+      - ref: tomater
+        item: hakkede tomater
+        amount: 400
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: bouillon
+        item: oksebouillon
+        label: okse- eller grøntsagsbouillon
+        amount: 400
+        unit: ml
+        display_unit: dl
+      - ref: kidneyboenner
+        item: bønner_dåse
+        label: kidneybønner (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænet og skyllede
+        scaling: whole_unit
+      - ref: aerter
+        item: ærter
+        label: frosne ærter
+        amount: 150
+        unit: g
+      - ref: oregano
+        item: oregano
+        label: tørret oregano
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+      - item: salt
+        label: Salt
+        amount: null
+
+  - id: topping_side
+    title: Til servering
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: purloeg
+        item: purløg
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+
+steps:
+  - section: Gryderet
+    component_id: gryde_base
+    items:
+      - "Varm {olie} op i en stor gryde ved middel varme."
+      - "Sautér {loeg} 3–5 minutter, til det er blødt og klart."
+      - "Tilsæt {peberfrugt} og {guleroedder} og sautér 3–4 minutter."
+      - "Tilsæt {kartofler}, {tomater} og {bouillon}, så det lige dækker. Krydr med {oregano}, peber og salt."
+      - "Bring i kog og skru ned til simren. Lad retten simre under låg, til kartoflerne er møre (typisk 15–25 minutter)."
+      - "Rør {kidneyboenner} og {aerter} i de sidste 5 minutter, så de bliver varme men ikke kogt helt ud."
+      - "Smag til med mere salt, peber og oregano. Server med {purloeg} på toppen."

@@ -1,0 +1,120 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: hvidkaalssuppe
+title: Hvidkålssuppe
+source: https://www.valdemarsro.dk/hvidkaalssuppe/
+image: ../Files/images/hvidkaalssuppe.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 30
+tags:
+  - vegetar
+  - suppe
+  - kål
+  - hurtig
+notes: "Cremet hvidkålssuppe med kartofler. Rugbrød og æble/valnødde-topping er adskilt i eget modul."
+
+components:
+  - id: suppe_base
+    title: Til suppen
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakkede
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        prep: finthakkede
+      - ref: kartofler
+        item: kartofler
+        amount: 400
+        unit: g
+        prep: skåret i små tern
+      - ref: hvidkaal
+        item: hvidkål
+        amount: 500
+        unit: g
+        prep: skåret i tynde strimler
+      - ref: guleroedder
+        item: gulerødder
+        amount: 2
+        unit: stk
+        prep: skåret i tynde skiver
+      - ref: fennikelfroe
+        item: fennikelfrø
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 1000
+        unit: ml
+        display_unit: l
+      - ref: soja
+        item: sojasauce
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: floede
+        item: piskefløde
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: servering_side
+    title: Til servering (rugbrød, æble & valnødder)
+    role: side
+    default_enabled: true
+    ingredients:
+      - ref: rugbroed
+        item: rugbrød
+        label: skiver rugbrød
+        amount: 4
+        unit: stk
+        grams_override: 160
+        prep: ristet
+      - ref: aeble
+        item: æble
+        amount: 1
+        unit: stk
+        prep: skåret i små tern
+      - ref: valnoedder
+        item: valnødder
+        amount: 40
+        unit: g
+        prep: grofthakket
+      - ref: persille
+        item: persille
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+
+steps:
+  - section: Hvidkålssuppe
+    component_id: suppe_base
+    items:
+      - "Varm {olie} op i en stor gryde ved middel varme. Sautér {loeg} og {hvidloeg} 5–7 minutter, til løgene er bløde og klare."
+      - "Tilsæt {kartofler}, {hvidkaal}, {guleroedder} og {fennikelfroe}. Rør rundt i 1 minut."
+      - "Hæld {bouillon} i og bring i kog. Læg låg på og lad suppen simre, til kartoflerne er møre (10–15 minutter)."
+      - "Tilsæt {soja} og {floede}. Smag til med salt og friskkværnet peber."
+      - "Blend suppen helt cremet, eller lad grøntsagerne være hele, hvis du vil have en mere rustik suppe."
+      - "Server varm med ristet {rugbroed} og topping af {aeble}, {valnoedder} og {persille}."

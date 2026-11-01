@@ -1,0 +1,167 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: linsekarry-med-ris
+title: Linsekarry med ris
+source: https://www.valdemarsro.dk/linsekarry-med-ris/
+image: ../Files/images/linsekarry-med-ris.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 45
+  active_min: 30
+tags:
+  - vegetar
+  - indisk
+  - linser
+  - karry
+  - ris
+notes: "Linsekarry med grønne linser, krydrede ingefær-ris og citronyoghurt."
+
+components:
+  - id: linsekarry_base
+    title: Linsekarry
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: karry
+        item: karry
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: karry_olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 1
+        unit: stk
+        prep: finthakket
+      - ref: karry_hvidloeg
+        item: hvidløg
+        amount: 3
+        unit: fed
+        prep: finthakkede
+      - ref: karry_ingefaer
+        item: ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: linser
+        item: grønne linser
+        amount: 150
+        unit: g
+      - ref: squash
+        item: squash
+        amount: 200
+        unit: g
+        prep: skåret i små tern
+      - ref: tomater
+        item: hakkede tomater
+        amount: 400
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: dåse
+        scaling: whole_unit
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: ris_carb
+    title: Ris med ingefær
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris_olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: ris_ingefaer
+        item: ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: ris_hvidloeg
+        item: hvidløg
+        amount: 1
+        unit: fed
+        prep: presset
+      - ref: vand
+        item: vand
+        amount: 500
+        unit: ml
+        display_unit: dl
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: ris_salt
+        item: salt
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+
+  - id: yoghurt_side
+    title: Yoghurt (til servering)
+    role: side
+    default_enabled: true
+    ingredients:
+      - ref: yoghurt
+        item: græsk yoghurt 10
+        label: græsk yoghurt
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+      - ref: citron
+        item: citron
+        label: økologisk citron (fintrevet skal og saft)
+        amount: 0.5
+        unit: stk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+steps:
+  - section: Ris med ingefær
+    component_id: ris_carb
+    items:
+      - "Varm {ris_olie} op i en gryde ved lav varme. Sautér {ris_ingefaer} og {ris_hvidloeg} 30–60 sekunder, til det dufter, men uden at det tager farve."
+      - "Tilsæt {vand}, {ris} og {ris_salt}. Bring langsomt i kog, læg låg på og lad risene koge ved svag varme i 10 minutter."
+      - "Sluk og lad risene hvile 10 minutter med låget på. Løsn dem med en gaffel."
+  - section: Linsekarry
+    component_id: linsekarry_base
+    items:
+      - "Rist {karry} på en tør pande ved middel varme i 30 sekunder, til det dufter."
+      - "Varm {karry_olie} op i en gryde ved middel varme. Sautér {loeg}, {karry_hvidloeg} og {karry_ingefaer} 4–5 minutter, til løgene er bløde og klare."
+      - "Tilsæt {linser}, {squash}, {tomater} og {kokosmaelk}. Rør godt rundt og bring i kog."
+      - "Skru ned, læg låg på og lad karryen simre 30–40 minutter, til linserne er møre. Rør af og til."
+      - "Smag til med salt og friskkværnet peber."
+  - section: Yoghurt
+    component_id: yoghurt_side
+    items:
+      - "Rør {yoghurt} med {koriander} samt skal og lidt saft fra {citron}. Smag til med salt og peber."

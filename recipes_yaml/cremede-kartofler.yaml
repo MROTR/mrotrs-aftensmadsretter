@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: cremede-kartofler
+title: Cremede kartofler
+source: Kogebogsopslag
+image: ../Files/cremede-kartofler.png
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 20
+  active_min: 10
+tags:
+  - kartofler
+  - tilbehør
+  - hurtig
+  - fisk
+notes: "Kartoflerne kan spises som cremet tilbehør eller som hovedret med stegte sild og rugbrød."
+
+components:
+  - id: kartofler_base
+    title: Cremede kartofler
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.95
+    ingredients:
+      - ref: kartofler
+        item: kartofler
+        label: store kartofler
+        amount: 6
+        unit: stk
+        grams_override: 900
+      - ref: floede
+        item: piskefløde
+        label: piskefløde eller havrefløde
+        amount: 250
+        unit: ml
+        display_unit: dl
+      - ref: sennep
+        item: dijonsennep
+        label: dijonsennep med honning
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: dild
+        item: dild
+        label: frisk dild
+        amount: 1
+        unit: bundt
+        grams_override: 30
+      - item: salt
+        label: Uraffineret flagesalt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: sild_side
+    title: Servering (stegte sild & rugbrød - valgfrit)
+    role: side
+    default_enabled: false
+    ingredients:
+      - ref: sild
+        item: sild
+        label: stegte sild
+        amount: 6
+        range_text: "4–8"
+        unit: stk
+        grams_override: 450
+        optional: true
+      - ref: rugbroed
+        item: rugbrød
+        amount: 4
+        unit: stk
+        grams_override: 200
+        optional: true
+      - ref: smoer
+        item: smør
+        amount: 30
+        unit: g
+        optional: true
+
+steps:
+  - section: Cremede kartofler
+    component_id: kartofler_base
+    items:
+      - "Skræl {kartofler} og skær dem i mindre tern."
+      - "Kog kartoflerne 5–6 minutter i letsaltet vand."
+      - "Hæld vandet fra kartoflerne og tilsæt {floede}, {sennep} og salt."
+      - "Lad det simre i yderligere nogle minutter, til det får en cremet konsistens."
+      - "Vend finthakket {dild} i, og smag til med salt og peber."
+      - "Anret de varme, cremede kartofler (evt. med {sild}, {rugbroed} og {smoer})."

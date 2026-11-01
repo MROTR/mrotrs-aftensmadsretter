@@ -1,0 +1,101 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: thai-roed-karrypasta
+title: Thai rød karrypasta
+source: https://www.recipetineats.com/thai-red-curry-paste/
+image: ../Files/images/thai-roed-karrypasta.jpg
+servings: 2
+standard_kcal_per_portion: 120
+time:
+  total_min: 40
+  active_min: 10
+tags:
+  - thai
+  - karry
+  - tilbehør
+  - basisopskrift
+  - fryseegnet
+notes: "Hjemmelavet thai rød karrypasta (nok til 2 gryderetter á 4 personer)."
+
+components:
+  - id: pasta_base
+    title: Til karrypastaen
+    role: base
+    default_enabled: true
+    ingredients:
+      - ref: chilier
+        item: chiliflager
+        label: tørrede røde chilier
+        amount: 16
+        unit: stk
+        grams_override: 25
+        prep: klippet i ca. 1 cm stykker (kerner rystet ud efter smag)
+      - ref: citrongraes
+        item: citrongræs
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        prep: i tynde skiver (tørre yderblade fjernet)
+      - ref: galanga
+        item: ingefær
+        label: galanga (eller frisk ingefær + ekstra limeskal)
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+      - ref: rejepasta
+        item: rejepasta
+        label: reje-pasta i olie (eller 2 tsk belacan)
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: korianderstaengler
+        item: koriander
+        label: korianderstængler (evt. med lidt rod)
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: grofthakket
+      - ref: skalotteloeg
+        item: skalotteløg
+        label: røde skalotteløg
+        amount: 2
+        unit: stk
+        prep: grofthakkede
+      - ref: limeskal
+        item: lime
+        label: fintrevet limeskal
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: vand
+        item: vand
+        label: udblødningsvand fra chilierne
+        amount: 60
+        unit: ml
+        display_unit: dl
+
+steps:
+  - section: Thai rød karrypasta
+    component_id: pasta_base
+    items:
+      - "Smag på en tørret chili for at vurdere styrken. Kom {chilier} i en skål og hæld ca. 7 dl kogende vand over. Lad udbløde ca. 30 minutter."
+      - "Tag chilierne op og gem udblødningsvandet."
+      - "Kom chilierne i en blender eller kraftig foodprocessor."
+      - "Tilsæt {citrongraes}, {galanga}, {hvidloeg}, {rejepasta}, {koriander_stoedt}, {spidskommen}, {korianderstaengler}, {skalotteloeg} og {limeskal}."
+      - "Tilsæt {vand} og blend til en så glat pasta som muligt. Tilsæt en smule mere vand hvis nødvendigt."
+      - "Opbevar i en lufttæt beholder i køleskab (et par dage), eller frys i små portioner."

@@ -1,0 +1,139 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: indiske-ris
+title: Indiske ris
+source: https://www.valdemarsro.dk/indiske-ris/
+image: ../Files/images/indiske-ris.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 40
+  active_min: 15
+tags:
+  - vegetar
+  - indisk
+  - ris
+  - paneer
+notes: "Krydrede indiske ris med dadler og cashewnødder. Paneer og græsk yoghurt (raita) kan slås til/fra som valgfrie moduler."
+
+components:
+  - id: ris_base
+    title: Til de indiske ris
+    role: base
+    default_enabled: true
+    ingredients:
+      - ref: basmatiris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: sorte_ris
+        item: sorte ris
+        amount: 50
+        unit: ml
+        display_unit: dl
+      - ref: olie
+        item: olivenolie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 1
+        unit: stk
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakkede
+      - ref: dadler
+        item: dadler
+        amount: 2
+        unit: stk
+        grams_override: 25
+        prep: finthakkede
+      - ref: gurkemeje
+        item: gurkemeje
+        label: stødt gurkemeje
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: cayenne
+        item: chiliflager
+        label: cayennepeber
+        amount: 1
+        unit: knivspids
+      - ref: kardemomme
+        item: kardemomme
+        label: stødt kardemomme
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: kanel
+        item: kanel
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: nellike
+        item: stødt nellike
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: cashews
+        item: cashewnødder
+        amount: 30
+        unit: g
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: paneer_opt
+    title: Valgfrit (paneer - ekstra protein)
+    role: optional
+    default_enabled: true
+    ingredients:
+      - ref: paneer
+        item: paneer
+        amount: 200
+        unit: g
+        prep: i tern
+        optional: true
+
+  - id: raita_opt
+    title: Til servering (græsk yoghurt / raita)
+    role: side
+    default_enabled: false
+    ingredients:
+      - ref: yoghurt
+        item: græsk yoghurt 10
+        label: græsk yoghurt (raita)
+        amount: 300
+        unit: g
+        optional: true
+
+steps:
+  - section: Indiske ris
+    component_id: ris_base
+    items:
+      - "Kog {basmatiris} og {sorte_ris} efter anvisningen på pakken. (Hvis de sorte ris har længere kogetid, så start dem lidt før.)"
+      - "Varm {olie} op på en pande ved middel varme. Sautér {loeg} og {hvidloeg} 4–5 minutter, til løgene er bløde og klare."
+      - "Tilsæt {dadler}, {gurkemeje}, {cayenne}, {kardemomme}, {kanel}, {nellike} og {spidskommen} og rør 30–60 sekunder, til det dufter."
+      - "Valgfrit: steg {paneer} gyldne på panden og tag dem af."
+      - "Vend de kogte ris og {cashews} i. Varm det hele igennem i 3–5 minutter under omrøring."
+      - "Vend evt. paneer i til sidst."
+      - "Smag til med salt og friskkværnet peber. Drys {koriander} over og servér (evt. med {yoghurt} ved siden af)."

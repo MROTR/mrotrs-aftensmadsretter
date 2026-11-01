@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: raastegte-kartofler
+title: Råstegte kartofler
+source: https://www.valdemarsro.dk/raastegte-kartofler/
+image: ../Files/images/raastegte-kartofler.jpg
+servings: 4
+standard_kcal_per_portion: 300
+time:
+  total_min: 40
+  active_min: 10
+tags:
+  - vegetar
+  - kartofler
+  - ovnret
+  - tilbehør
+notes: "Sprøde ovnbagte kartofler med timian og parmesan."
+
+components:
+  - id: kartofler_base
+    title: Råstegte kartofler
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.85
+    ingredients:
+      - ref: kartofler
+        item: kartofler
+        amount: 1000
+        unit: g
+        prep: skrubbede eller skrællede
+      - ref: olie
+        item: olivenolie
+        amount: 50
+        unit: ml
+        display_unit: dl
+        scaling: sublinear
+      - ref: timian
+        item: timian
+        label: tørret timian
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: parmesan
+        item: parmesan
+        label: friskrevet parmesan (eller vesterhavsost)
+        amount: 15
+        unit: g
+      - item: salt
+        label: Salt og friskkværnet peber
+        amount: null
+
+steps:
+  - section: Råstegte kartofler
+    component_id: kartofler_base
+    items:
+      - "Forvarm ovnen til 180 grader varmluft."
+      - "Skær {kartofler} i grove tern og vend dem godt i {olie}, salt, peber og {timian}."
+      - "Fordel kartoflerne på en bageplade med bagepapir i ét lag."
+      - "Bag dem i 30–40 minutter. Vend dem et par gange undervejs."
+      - "3–5 minutter før de er helt færdige: Drys {parmesan} over og bag færdig."

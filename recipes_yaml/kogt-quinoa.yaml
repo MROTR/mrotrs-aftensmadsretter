@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: kogt-quinoa
+title: Kogt quinoa (basis)
+source: Egen opskrift
+image: ""
+servings: 4
+standard_kcal_per_portion: 200
+time:
+  total_min: 20
+  active_min: 5
+tags:
+  - vegetar
+  - vegansk
+  - tilbehør
+  - quinoa
+  - hurtig
+notes: "Basisopskrift på kogt quinoa til 4 personer som tilbehør (50 g tørvægt = ca. 130 g kogt quinoa pr. person)."
+
+components:
+  - id: quinoa_base
+    title: Til kogt quinoa
+    role: base
+    default_enabled: true
+    ingredients:
+      - ref: quinoa
+        item: quinoa
+        amount: 200
+        unit: g
+      - ref: vand
+        item: vand
+        amount: 600
+        unit: ml
+        display_unit: dl
+      - ref: salt
+        item: salt
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+
+steps:
+  - section: Kogt quinoa
+    component_id: quinoa_base
+    items:
+      - "Skyl {quinoa} grundigt i en si (1–2 minutter), til vandet ikke længere er mælket."
+      - "Kom quinoa, {vand} og {salt} i en gryde og bring i kog."
+      - "Skru ned til lav varme og lad simre under låg 12–15 minutter, til væsken er absorberet."
+      - "Tag gryden af varmen og lad quinoa hvile 5 minutter under låg."
+      - "Løsn quinoa med en gaffel og server."

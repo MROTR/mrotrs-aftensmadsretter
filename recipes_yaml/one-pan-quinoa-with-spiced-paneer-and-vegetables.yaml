@@ -1,0 +1,171 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: one-pan-quinoa-with-spiced-paneer-and-vegetables
+title: Quinoa i én pande med krydret paneer og grøntsager
+source: Egen opskrift
+image: ""
+servings: 2
+standard_kcal_per_portion: 650
+time:
+  total_min: 35
+  active_min: 20
+tags:
+  - vegetar
+  - quinoa
+  - paneer
+  - proteinrig
+  - hurtig
+notes: "Proteinrigt måltid til 2 normale portioner (eller 1 stor). Smør/ghee og cashewnødder kan slås til/fra som ekstra modul."
+
+components:
+  - id: pande_base
+    title: Quinoa, paneer & grøntsager
+    role: base
+    default_enabled: true
+    ingredients:
+      - ref: quinoa
+        item: quinoa
+        amount: 120
+        unit: g
+        prep: skyllet
+      - ref: vand
+        item: vand
+        label: vand eller grøntsagsbouillon
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: salt
+        item: salt
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: paneer
+        item: paneer
+        amount: 150
+        unit: g
+        prep: skåret i tern (1.5–2 cm)
+      - ref: rapsolie
+        item: rapsolie
+        amount: 20
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        label: mellemstort løg
+        amount: 1
+        unit: stk
+        grams_override: 80
+        prep: i skiver eller finthakket
+      - ref: gulerod
+        item: gulerod
+        label: mellemstor gulerod
+        amount: 1
+        unit: stk
+        grams_override: 80
+        prep: i tynde skiver eller tern
+      - ref: groenkaal
+        item: grønkål
+        label: grønkål eller spinat (eller frosne ærter)
+        amount: 60
+        unit: g
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakket
+      - ref: ingefaer
+        item: ingefær
+        label: frisk ingefær
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        prep: fintrevet
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: gurkemeje
+        item: gurkemeje
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - ref: paprika
+        item: paprika
+        label: mildt chilipulver eller paprika
+        amount: 3.75
+        range_text: "0.5–1"
+        unit: ml
+        display_unit: tsk
+      - ref: peber
+        item: peber
+        label: sort peber
+        amount: 2
+        unit: ml
+        display_unit: tsk
+      - ref: ekstra_vand
+        item: grøntsagsbouillon
+        label: vand, grøntsagsbouillon eller mælk
+        amount: 75
+        unit: ml
+        display_unit: dl
+
+  - id: extras_opt
+    title: Tilvalg (smør/ghee, cashewnødder & urter)
+    role: optional
+    default_enabled: false
+    ingredients:
+      - ref: smoer
+        item: smør
+        label: smør eller ghee
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        optional: true
+      - ref: cashews
+        item: cashewnødder
+        label: cashewnødder eller mandler
+        amount: 30
+        unit: g
+        optional: true
+      - ref: garam_masala
+        item: garam masala
+        amount: 2
+        unit: ml
+        display_unit: tsk
+        optional: true
+      - ref: koriander_frisk
+        item: koriander
+        label: frisk koriander eller persille
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        optional: true
+      - ref: citronsaft
+        item: citronsaft
+        amount: 12.5
+        unit: ml
+        display_unit: tsk
+        optional: true
+
+steps:
+  - section: Quinoa i én pande
+    component_id: pande_base
+    items:
+      - "Kom {quinoa}, {vand} og {salt} i en lille gryde. Bring i kog, skru ned og lad simre under låg i 12–15 minutter, til væsken er opsuget."
+      - "Sluk og lad quinoa hvile 5 minutter. Løsn med en gaffel."
+      - "Dup {paneer} tør. Varm halvdelen af {rapsolie} på en stor pande ved middel varme og steg paneer 5–7 minutter, til ternene er gyldne på flere sider. Tag dem af panden."
+      - "Varm resten af rapsolien (og evt. {smoer}) på panden. Steg {loeg} og {gulerod} 5–7 minutter, til de er bløde og let gyldne."
+      - "Tilsæt {hvidloeg} og {ingefaer} og steg 30–60 sekunder, til det dufter."
+      - "Tilsæt {spidskommen}, {koriander_stoedt}, {gurkemeje}, {paprika} og {peber}. Rør 30 sekunder."
+      - "Tilsæt {groenkaal} og varm 2–3 minutter, til det lige falder sammen."
+      - "Tilsæt {cashews} (hvis du bruger dem) og rist 30 sekunder."
+      - "Hæld {ekstra_vand} på og skrab bunden fri. Lad simre 2–3 minutter, til det samler sig til en let sauce."
+      - "Vend quinoa i og derefter paneer. Varm 2–3 minutter, til alt er gennemvarmt. Smag til med salt og evt. {garam_masala}."
+      - "Vend {koriander_frisk} og {citronsaft} i til sidst og servér med det samme."

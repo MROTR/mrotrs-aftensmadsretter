@@ -1,0 +1,130 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: bolognese-m-fake-koed
+title: Bolognese m. fake kød
+source: Egen opskrift
+image: ""
+servings: 6
+standard_kcal_per_portion: 650
+time:
+  total_min: "90–120"
+  active_min: 60
+tags:
+  - vegetar
+  - italiensk
+  - pasta
+  - gryderet
+  - fryseegnet
+notes: "Saucen og pastaen er opdelt i moduler. Plantefars ('fake meat') er beregnet med ~165 kcal/100 g."
+
+components:
+  - id: sauce_base
+    title: Til saucen
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.88
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 60
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        label: store løg
+        amount: 2.5
+        range_text: "2–3"
+        unit: stk
+        grams_override: 300
+        prep: skåret i tynde halve skiver
+      - ref: guleroedder
+        item: gulerødder
+        label: mellemstore gulerødder
+        amount: 3.5
+        range_text: "3–4"
+        unit: stk
+        grams_override: 280
+        prep: skåret i små tern
+      - ref: gront_bouillon
+        item: bouillonterning
+        label: grøntsagsbouillonterninger
+        amount: 2
+        unit: stk
+      - ref: okse_bouillon
+        item: bouillonterning
+        label: oksebouillonterning
+        amount: 1
+        unit: stk
+      - ref: muskat
+        item: muskatnød
+        label: stødt muskatnød
+        amount: 7.5
+        range_text: "1–2"
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+      - ref: tomatpure
+        item: tomatpuré
+        label: koncentreret tomatpuré (små dåser á 140 g)
+        amount: 280
+        unit: g
+      - ref: plantefars
+        item: plantefars
+        label: fake meat (plantefars)
+        amount: 400
+        unit: g
+        prep: groftsmuldret
+      - ref: tomater
+        item: hakkede tomater
+        amount: 1200
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: basilikum
+        item: basilikum
+        label: frisk basilikum
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+      - item: salt
+        label: Salt
+        amount: null
+
+  - id: pasta_carb
+    title: Til servering (pasta)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: pasta
+        item: pasta
+        label: pasta (tørvægt)
+        amount: 450
+        unit: g
+
+  - id: topping_opt
+    title: Topping (parmesan)
+    role: topping
+    default_enabled: false
+    ingredients:
+      - ref: parmesan
+        item: parmesan
+        amount: 60
+        unit: g
+        prep: fintrevet
+        optional: true
+
+steps:
+  - section: Bolognese
+    component_id: sauce_base
+    items:
+      - "Varm {olie} op i en stor gryde ved lav til middel varme."
+      - "Sautér {loeg} i 10–15 minutter, til de er helt bløde og let gyldne."
+      - "Tilsæt {guleroedder} og sautér 8–10 minutter mere, til de også begynder at blive møre."
+      - "Smuldr {gront_bouillon} og {okse_bouillon} i og rør {muskat} og friskkværnet peber i."
+      - "Tilsæt {tomatpure} og steg 3–5 minutter ved lav varme, til den bliver mørkere og dufter \"ristet\"."
+      - "Skub grøntsagerne til siden og steg {plantefars} 3–5 minutter, til det tager farve."
+      - "Rør det hele sammen. Tilsæt {tomater} og {basilikum}. Lad saucen simre uden låg i 30–60 minutter, til den er tyk og kan dække bagsiden af en ske. Rør af og til."
+      - "Smag til med salt og mere peber. Server med {pasta} og evt. {parmesan}."

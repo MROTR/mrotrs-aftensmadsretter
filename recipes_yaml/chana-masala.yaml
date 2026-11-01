@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: chana-masala
+title: Chana masala
+source: https://www.valdemarsro.dk/chana-masala/
+image: ../Files/images/chana-masala.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 20
+tags:
+  - vegetar
+  - vegansk
+  - indisk
+  - kikærter
+  - hurtig
+  - gryderet
+notes: "3 dl basmatiris svarer til ca. 255–300 g tørvægt (her regnet som 300 g tørvægt = ca. 750 g kogt ris). 2 dåser drænede kikærter = 480 g."
+
+components:
+  - id: chana_base
+    title: Til chana masala
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakket
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 5
+        unit: fed
+        prep: finthakket
+      - ref: ingefaer
+        item: ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: chili
+        item: chili
+        label: rød chili
+        amount: 0.5
+        unit: stk
+        prep: finthakket (tilpas efter smag)
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: kardemomme
+        item: kardemomme
+        label: stødt kardemomme
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: gurkemeje
+        item: gurkemeje
+        label: stødt gurkemeje
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: garam_masala
+        item: garam masala
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: tomater
+        item: hakkede tomater
+        amount: 800
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: kikaerter
+        item: kikærter_dåse
+        label: kikærter (drænet)
+        amount: 480
+        unit: g
+        display_unit: dåse
+        prep: drænet og skyllede
+        scaling: whole_unit
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 100
+        unit: ml
+        display_unit: dl
+        prep: plus ekstra efter behov
+      - ref: sukker
+        item: sukker
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: salt
+        item: salt
+        amount: 5
+        unit: ml
+        display_unit: tsk
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+        prep: kogt efter anvisning på pakken
+      - ref: koriander_frisk
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+
+steps:
+  - section: Chana masala
+    component_id: chana_base
+    items:
+      - "Varm {olie} op i en gryde ved middel varme. Sautér {loeg} og {spidskommen} i 6–8 minutter, til løgene er helt bløde og klare."
+      - "Tilsæt {hvidloeg}, {ingefaer} og {chili}. Sautér 1 minut, til det dufter."
+      - "Tilsæt {koriander_stoedt}, {kardemomme}, {gurkemeje} og {garam_masala}. Rør 30 sekunder, så krydderierne bliver \"vakt\" i olien."
+      - "Tilsæt {tomater} og {kikaerter}. Hæld {bouillon} i og bring i kog."
+      - "Lad retten simre uden låg i cirka 20 minutter. Rør jævnligt."
+      - "Smag til med {sukker} og {salt}. Hvis den bliver for tyk undervejs, så tilsæt lidt ekstra bouillon."
+      - "Server med {ris} og {koriander_frisk}."

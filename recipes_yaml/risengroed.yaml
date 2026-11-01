@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: risengroed
+title: Risengrød
+source: https://www.valdemarsro.dk/risengroed/
+image: ../Files/images/risengroed.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 60
+  active_min: 20
+tags:
+  - vegetar
+  - grød
+  - klassiker
+  - ris
+notes: "Klassisk risengrød. Kanelsukker og smørklat er skilt ud i et separat topping-modul."
+
+components:
+  - id: groed_base
+    title: Til grøden
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: groedris
+        item: grødris
+        amount: 600
+        unit: ml
+        display_unit: dl
+        prep: skyllet
+      - ref: vand
+        item: vand
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: maelk
+        item: sødmælk
+        label: mælk (sødmælk eller letmælk)
+        amount: 2000
+        unit: ml
+        display_unit: l
+      - ref: salt
+        item: salt
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+
+  - id: smor_kanel_topping
+    title: Til servering (kanelsukker & smør)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: smoer
+        item: smør
+        amount: 40
+        unit: g
+        prep: smørklat (ca. 10 g pr. portion)
+      - ref: sukker
+        item: sukker
+        amount: 40
+        unit: g
+        prep: til kanelsukker
+      - ref: kanel
+        item: kanel
+        amount: 10
+        unit: ml
+        display_unit: tsk
+
+steps:
+  - section: Risengrød på komfur
+    component_id: groed_base
+    items:
+      - "Kom skyllede {groedris} og {vand} i en gryde. Bring i kog under omrøring, til vandet næsten er væk."
+      - "Hæld {maelk} i og varm op til lige under kogepunktet, mens du rører, så det ikke brænder på."
+      - "Skru ned til lav varme, læg låg på og lad grøden simre roligt. Rør cirka hver 10. minut."
+      - "Efter cirka 45–60 minutter: Risene skal være møre, og grøden skal være cremet og tyk."
+      - "Smag til med {salt}. Server varm med {smoer}, {kanel} og {sukker}."

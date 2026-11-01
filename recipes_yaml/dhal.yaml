@@ -1,0 +1,215 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: dhal
+title: Dhal
+source: https://www.valdemarsro.dk/dhal/
+image: ../Files/images/dhal.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 60
+  active_min: 15
+tags:
+  - vegetar
+  - indisk
+  - linser
+  - gryderet
+  - fryseegnet
+notes: "Røde linser optager væske under simring (faktor 2.5x). Mængder er lagret i kanoniske enheder (g, ml, stk) og vises automatisk i danske køkkenmål (f.eks. 7.5 ml -> ½ spsk / 2 tsk ved skalering)."
+
+components:
+  - id: dhal_base
+    title: Til dhal
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        grams_override: 220
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        grams_override: 12
+        prep: finthakket
+      - ref: ingefaer
+        item: ingefær
+        label: frisk ingefær
+        amount: 37.5
+        unit: ml
+        display_unit: spsk
+        range_text: "2–3"
+        grams_override: 15
+        prep: fintrevet
+      - ref: karry
+        item: karry
+        label: gul karry
+        amount: 37.5
+        unit: ml
+        display_unit: spsk
+        range_text: "2–3"
+        scaling: sublinear
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 7.5
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 7.5
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: kardemomme
+        item: kardemomme
+        label: stødt kardemomme
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        range_text: "0–0.5"
+        scaling: sublinear
+      - ref: chili
+        item: chiliflager
+        label: chiliflager eller chilipulver
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: linser
+        item: røde linser
+        amount: 200
+        unit: g
+        prep: skyllet
+      - ref: tomater
+        item: hakkede tomater
+        amount: 800
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: bouillon
+        item: bouillonterning
+        label: grøntsagsbouillonterning
+        amount: 1
+        unit: stk
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: ml
+        scaling: whole_unit
+      - ref: vand
+        item: vand
+        amount: 100
+        unit: ml
+        display_unit: ml
+        prep: valgfrit, efter konsistens
+      - ref: paneer
+        item: paneer
+        amount: 200
+        unit: g
+        prep: skåret i tern
+      - item: salt
+        label: Salt
+        amount: null
+
+  - id: raita_side
+    title: Til raita
+    role: side
+    default_enabled: true
+    ingredients:
+      - ref: yoghurt
+        item: græsk yoghurt 10
+        label: græsk yoghurt 10 %
+        amount: 200
+        unit: ml
+        display_unit: dl
+      - ref: agurk
+        item: agurk
+        amount: 0.5
+        unit: stk
+        prep: groftrevet og let afdryppet
+      - ref: raita_hvidloeg
+        item: hvidløg
+        amount: 1
+        unit: fed
+        prep: presset
+      - ref: mynte
+        item: mynte
+        label: frisk mynte
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+      - ref: raita_spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+      - ref: koriander_frisk
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+
+  - id: floede_opt
+    title: Tilvalg (fløde)
+    role: optional
+    default_enabled: false
+    ingredients:
+      - ref: floede
+        item: piskefløde
+        label: fløde
+        amount: 150
+        unit: ml
+        display_unit: ml
+        range_text: "100–200"
+        optional: true
+
+  - id: ris_carb
+    title: Til servering (ris - valgfrit)
+    role: carb
+    default_enabled: false
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+        prep: "tørvægt (kogt efter anvisning, hvis man ønsker ris til)"
+        optional: true
+
+steps:
+  - section: Dhal
+    component_id: dhal_base
+    items:
+      - "Varm {olie} op i en stor gryde ved middel varme. Sautér {loeg} 6–8 minutter, til de er bløde og klare."
+      - "Tilsæt {hvidloeg} og {ingefaer} og sautér 1 minut, til det dufter."
+      - "Tilsæt {karry}, {spidskommen}, {koriander_stoedt}, {kardemomme} og {chili}. Rør 30–60 sekunder, så krydderierne bliver \"vakt\" i olien."
+      - "Tilsæt {linser}, {tomater}, {bouillon}, {kokosmaelk} og {vand}. Bring i kog."
+      - "Skru ned og lad dhal simre under låg i 30–45 minutter, til linserne er helt møre og retten er cremet. Rør jævnligt, så det ikke sætter sig i bunden. Justér med lidt ekstra vand, hvis den bliver for tyk."
+      - "Steg {paneer} på en pande ved siden af, til ternene er gyldne på flere sider."
+      - "Når dhal er klar: Vend paneer i og varm 3–5 minutter. Rør {floede} i til sidst, hvis du bruger det."
+      - "Smag til med salt."
+  - section: Raita
+    component_id: raita_side
+    items:
+      - "Rør {yoghurt}, {agurk}, {raita_hvidloeg}, {mynte}, {raita_spidskommen}, salt og peber sammen. Vend {koriander_frisk} i."
+      - "Server dhal varm med kølig raita ved siden af (og evt. {ris})."

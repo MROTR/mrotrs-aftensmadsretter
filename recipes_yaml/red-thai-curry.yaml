@@ -1,0 +1,159 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: red-thai-curry
+title: Red thai curry
+source: https://www.valdemarsro.dk/red-thai-curry/
+image: ../Files/images/red-thai-curry.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 20
+tags:
+  - vegetar
+  - thai
+  - karry
+  - kokosmælk
+  - hurtig
+notes: "2 dåser kokosmælk giver en meget rig sauce. Du kan nemt se forskellen med/uden ris og peanuts, eller skalere portionen til 650 kcal."
+
+components:
+  - id: curry_base
+    title: Til curry
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: skåret i både
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakkede
+      - ref: ingefaer
+        item: ingefær
+        label: frisk ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: karrypasta
+        item: karrypasta
+        label: rød karrypasta
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: karry
+        item: karry
+        label: karry (medium)
+        amount: 7.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 800
+        unit: ml
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: fiskesauce
+        item: fiskesauce
+        label: fish sauce eller sojasauce
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: farin
+        item: brun farin
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: guleroedder
+        item: gulerødder
+        amount: 2
+        unit: stk
+        prep: skåret i tynde stave
+      - ref: kartofler
+        item: kartofler
+        amount: 2
+        unit: stk
+        prep: skåret i tern
+      - ref: broccoli
+        item: broccoli
+        amount: 1
+        unit: stk
+        prep: skåret i buketter
+      - ref: squash
+        item: squash
+        amount: 1
+        unit: stk
+        prep: skåret i tern
+      - ref: blomkaal
+        item: blomkål
+        amount: 100
+        unit: g
+        prep: skåret i små buketter
+      - ref: lime
+        item: lime
+        label: økologisk lime
+        amount: 1
+        unit: stk
+        prep: fintrevet skal og saft
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+
+  - id: peanuts_topping
+    title: Topping (peanuts & koriander)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: peanuts
+        item: peanuts
+        label: saltede peanuts
+        amount: 100
+        unit: ml
+        display_unit: dl
+        prep: grofthakkede
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+
+steps:
+  - section: Red thai curry
+    component_id: curry_base
+    items:
+      - "Kog {ris} efter anvisningen på pakken."
+      - "Varm {olie} op i en gryde ved middel varme. Sautér {loeg} 3–4 minutter, til de er bløde og klare."
+      - "Tilsæt {hvidloeg}, {ingefaer}, {karrypasta} og {karry}. Rør 1 minut, til det dufter."
+      - "Tilsæt {kokosmaelk}, {fiskesauce}, {farin}, {guleroedder} og {kartofler}. Bring i kog."
+      - "Skru ned, læg låg på og lad det simre 15 minutter, til kartoflerne næsten er møre."
+      - "Tilsæt {broccoli}, {squash} og {blomkaal}. Lad det simre 5 minutter mere, til grøntsagerne er møre men stadig har lidt bid."
+      - "Smag til med skal og saft fra {lime}, salt og friskkværnet peber."
+      - "Servér i skåle med {ris}, {peanuts} og {koriander}."

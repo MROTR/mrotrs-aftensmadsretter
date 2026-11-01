@@ -1,0 +1,115 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: bagt-ratatouille
+title: Bagt ratatouille
+source: https://www.bluezones.com/recipe/roasted-ratatouille/
+image: ../Files/images/bagt-ratatouille.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 60
+  active_min: 20
+tags:
+  - vegetar
+  - vegansk
+  - fransk
+  - ovnret
+  - tilbehør
+notes: "Grøntsagerne taber lidt væske under bagning i ovnen (faktor 0.85)."
+
+components:
+  - id: ratatouille_base
+    title: Grøntsager & tomatpuré
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.85
+    ingredients:
+      - ref: squash
+        item: squash
+        amount: 2
+        unit: stk
+        grams_override: 300
+        prep: skåret i 3 mm skiver
+      - ref: aubergine
+        item: aubergine
+        amount: 1
+        unit: stk
+        grams_override: 400
+        prep: skåret i 3 mm skiver
+      - ref: salt
+        item: salt
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: olie
+        item: olivenolie
+        label: ekstra jomfru olivenolie
+        amount: 60
+        unit: ml
+        display_unit: dl
+        scaling: sublinear
+      - ref: peberfrugt
+        item: peberfrugt
+        label: rød peberfrugt
+        amount: 1
+        unit: stk
+        grams_override: 150
+        prep: renset og grofthakket
+      - ref: loeg
+        item: løg
+        amount: 0.5
+        unit: stk
+        grams_override: 75
+        prep: grofthakket
+      - ref: tomater
+        item: tomater
+        label: blommetomater
+        amount: 2
+        unit: stk
+        grams_override: 140
+        prep: grofthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        grams_override: 6
+        prep: hakket
+      - ref: timian
+        item: timian
+        label: frisk timian
+        amount: 4
+        unit: stk
+        grams_override: 4
+        prep: kviste, blade pillet af og hakket
+      - ref: oregano
+        item: oregano
+        label: frisk oregano
+        amount: 4
+        unit: stk
+        grams_override: 4
+        prep: kviste, blade pillet af og hakket
+      - ref: rosmarin
+        item: rosmarin
+        label: frisk rosmarin
+        amount: 1
+        unit: stk
+        grams_override: 2
+        prep: kvist, blade pillet af og hakket
+      - ref: peber
+        item: peber
+        label: friskkværnet sort peber
+        amount: 1.25
+        unit: ml
+        display_unit: tsk
+
+steps:
+  - section: Bagt ratatouille
+    component_id: ratatouille_base
+    items:
+      - "Forvarm ovnen til 190°C."
+      - "Kom {squash} og {aubergine} i en stor skål, drys med halvdelen af {salt} og vend det godt rundt. Tilsæt ca. 2/3 af {olie} og vend igen, så alle skiver er dækket. Sæt til side."
+      - "Kom {peberfrugt}, {loeg}, {tomater}, {hvidloeg}, halvdelen af {timian}, {oregano} og {rosmarin}, resten af saltet og {peber} i en blender. Kør til en jævn puré."
+      - "Hæld halvdelen af puréen i bunden af et bredt, rundt ildfast fad og fordel den jævnt."
+      - "Arranger squash- og aubergineskiverne ovenpå puréen i et mønster (f.eks. taglagt i en spiral), indtil hele fadet er dækket."
+      - "Hæld resten af puréen over toppen og fordel den jævnt. Drys med resten af krydderurterne."
+      - "Bag i ovnen i 40 minutter."
+      - "Tag fadet ud og dryp med den resterende {olie}. Lad retten hvile i 5 minutter inden servering."

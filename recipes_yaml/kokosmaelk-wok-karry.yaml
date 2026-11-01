@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: kokosmaelk-wok-karry
+title: Kokosmælk Wok karry
+source: Egen opskrift
+image: ""
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 25
+  active_min: 15
+tags:
+  - vegetar
+  - asiatisk
+  - wok
+  - karry
+  - hurtig
+notes: "Hurtig wokret med kokosmælk, wokmix og kikærter. Ris/nudler kan slås til/fra som modul."
+
+components:
+  - id: wok_base
+    title: Til wokken
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: loeg
+        item: løg
+        label: mellemstore løg
+        amount: 2
+        unit: stk
+        grams_override: 220
+        prep: skåret i tynde skiver
+      - ref: porre
+        item: porre
+        amount: 1
+        range_text: "0.5–1"
+        unit: stk
+        grams_override: 120
+        prep: skyllet og skåret i tynde skiver
+      - ref: wokmix
+        item: wokmix
+        label: pose wokmix
+        amount: 500
+        unit: g
+      - ref: broccoli
+        item: broccoli
+        amount: 150
+        unit: g
+        prep: i små buketter (valgfrit)
+        optional: true
+      - ref: karrypasta
+        item: karrypasta
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        prep: efter smag
+        scaling: sublinear
+      - ref: bouillon
+        item: bouillonterning
+        label: bouillonterning (grøntsag eller kylling)
+        amount: 1
+        unit: stk
+      - ref: kikaerter
+        item: kikærter_dåse
+        label: kikærter (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænet og skyllet
+        scaling: whole_unit
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: soja
+        item: sojasauce
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        prep: efter smag
+      - ref: kebabkrydderi
+        item: krydderier
+        label: kebabkrydderi
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        prep: efter smag
+
+  - id: ris_carb
+    title: Til servering (ris eller nudler)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        label: basmatiris (eller nudler, tørvægt)
+        amount: 300
+        unit: ml
+        display_unit: dl
+
+steps:
+  - section: Kokosmælk wok karry
+    component_id: wok_base
+    items:
+      - "Kog {ris}, så det er klar til servering."
+      - "Varm en stor pande eller wok op ved middelhøj varme. Sautér {loeg} og {porre} 3–4 minutter, til de falder sammen og bliver blanke."
+      - "Tilsæt {wokmix} (og evt. {broccoli}) og steg 4–6 minutter."
+      - "Rør {karrypasta} i og steg 30–60 sekunder, til det dufter."
+      - "Smuldr {bouillon} i. Tilsæt {kikaerter} og {kokosmaelk} og rør godt rundt."
+      - "Lad retten simre 5–10 minutter, til saucen er varm og let cremet, og grøntsagerne er helt møre."
+      - "Smag til med {soja} og {kebabkrydderi}. Server med ris eller nudler."

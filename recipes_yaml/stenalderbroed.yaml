@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: stenalderbroed
+title: Stenalderbrød
+source: https://www.madbanditten.dk/saftigt-kernebroed-med-hoejt-proteinindhold/
+image: ""
+servings: 12
+standard_kcal_per_portion: 280
+time:
+  total_min: 70
+  active_min: 10
+tags:
+  - vegetar
+  - brød
+  - proteinrig
+  - kerner
+  - fryseegnet
+notes: "Saftigt kernebrød med hytteost og æg. Sat til 12 skiver pr. brød, så 1 portion svarer til 1 skive (~75 g)."
+
+components:
+  - id: broed_base
+    title: Til brødet (1 brød = ca. 12 skiver)
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: solsikke
+        item: solsikkekerner
+        amount: 150
+        unit: g
+      - ref: graeskar
+        item: græskarkerner
+        amount: 150
+        unit: g
+      - ref: hoerfroe
+        item: hørfrø
+        amount: 100
+        unit: g
+      - ref: chiafroe
+        item: chiafrø
+        amount: 50
+        unit: g
+      - ref: sesamfroe
+        item: sesamfrø
+        amount: 50
+        unit: g
+      - ref: hytteost
+        item: hytteost
+        amount: 200
+        unit: g
+      - ref: aeg
+        item: æg
+        amount: 4
+        unit: stk
+      - ref: salt
+        item: salt
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: rosmarin
+        item: rosmarin
+        label: frisk rosmarin
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        prep: finthakket (valgfrit)
+        optional: true
+      - item: bagepapir
+        label: Bagepapir, til form
+        amount: null
+
+steps:
+  - section: Stenalderbrød
+    component_id: broed_base
+    items:
+      - "Tænd ovnen på 160°C varmluft."
+      - "Rør {solsikke}, {graeskar}, {hoerfroe}, {chiafroe}, {sesamfroe}, {hytteost}, {aeg} og {salt} sammen i en stor skål. Rør evt. {rosmarin} i."
+      - "Pres massen ned i en brødform beklædt med bagepapir, så overfladen bliver jævn."
+      - "Bag cirka 60 minutter, til brødet er fast hele vejen igennem og overfladen er let gylden."
+      - "Køl brødet helt af (gerne i køleskab), før du skærer det i tynde skiver."

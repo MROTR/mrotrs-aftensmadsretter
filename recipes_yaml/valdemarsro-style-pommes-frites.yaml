@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: valdemarsro-style-pommes-frites
+title: Valdemarsro-style Pommes frites
+source: https://www.valdemarsro.dk/pommes-frites/
+image: ../Files/images/valdemarsro-style-pommes-frites.jpg
+servings: 4
+standard_kcal_per_portion: 550
+time:
+  total_min: 120
+  active_min: 60
+tags:
+  - vegetar
+  - vegansk
+  - kartofler
+  - tilbehør
+notes: "Dobbeltfriterede sprøde pommes frites. Kun det faktiske olieoptag i fritterne (~120 g i alt, og ikke de 2 liter fritureolie i gryden) indgår i kalorierne."
+
+components:
+  - id: fritter_base
+    title: Til fritterne
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.78
+    ingredients:
+      - ref: bagekartofler
+        item: bagekartoffel
+        label: bagekartofler
+        amount: 8
+        unit: stk
+        grams_override: 1600
+        prep: skrubbede eller skrællet
+      - ref: eddike
+        item: æblecidereddike
+        amount: 45
+        unit: ml
+        display_unit: spsk
+      - ref: koge_salt
+        item: salt
+        label: salt til kogevandet
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: fritureolie
+        item: solsikkeolie
+        label: fritureolie (heraf optages ~120 g i fritterne; brug 2 liter i gryden)
+        amount: 120
+        unit: g
+        scaling: sublinear
+      - ref: flagesalt
+        item: salt
+        label: flagesalt til servering
+        amount: 15
+        unit: ml
+        display_unit: spsk
+
+steps:
+  - section: Forberedelse
+    component_id: fritter_base
+    items:
+      - "Skær {bagekartofler} i lige store pommes frites."
+      - "Læg dem i koldt vand i 60 minutter. Skift gerne vandet et par gange, så stivelsen skylles af."
+      - "Kog vand op i en gryde. Tilsæt {koge_salt} og {eddike}."
+      - "Kog kartoflerne cirka 10 minutter, til de er næsten møre (de skal kunne holde formen). Hæld vandet fra."
+      - "Lad fritterne køle af og tørre på et viskestykke."
+  - section: Første og anden fritering
+    component_id: fritter_base
+    items:
+      - "Varm 2 liter {fritureolie} op til cirka 150°C. Friter en lille portion ad gangen i cirka 5 minutter, til de er lyse og kun lige begynder at tage farve. Læg dem på bagepapir eller køkkenrulle."
+      - "Lige før servering: Varm olien op til 180°C. Friter igen i små portioner, til de er sprøde og dybt gyldne."
+      - "Lad dem dryppe af og drys med {flagesalt}. Server med det samme."

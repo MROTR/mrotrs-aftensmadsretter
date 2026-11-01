@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: thai-red-curry-with-chicken
+title: Thai rød karry med kylling
+source: https://www.recipetineats.com/thai-red-curry-with-chicken/
+image: ../Files/images/thai-red-curry-with-chicken.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 20
+tags:
+  - kylling
+  - thai
+  - karry
+  - kokosmælk
+  - hurtig
+notes: "Autentisk thai rød karry med kyllingelårfilet, græskar og grønne bønner. Ris er adskilt i eget modul."
+
+components:
+  - id: curry_base
+    title: Til curry
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.88
+    ingredients:
+      - ref: olie
+        item: rapsolie
+        label: olie til stegning
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: karrypasta
+        item: karrypasta
+        label: rød karrypasta
+        amount: 82.5
+        range_text: "5–6"
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: bouillon
+        item: hønsebouillon
+        label: kyllingebouillon
+        amount: 250
+        unit: ml
+        display_unit: ml
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: ml
+        scaling: whole_unit
+      - ref: limeblade
+        item: kaffir-limeblade
+        amount: 6
+        unit: stk
+        grams_override: 3
+      - ref: sukker
+        item: sukker
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: fiskesauce
+        item: fiskesauce
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: kylling
+        item: kyllingelår
+        label: kyllingelårfilet (uden skind/ben)
+        amount: 600
+        unit: g
+        prep: skåret i mundrette stykker
+      - ref: graeskar
+        item: hokkaido
+        label: græskar (f.eks. butternut eller hokkaido)
+        amount: 150
+        unit: g
+        prep: skåret i tern
+      - ref: boenner
+        item: bønner_grønne
+        label: grønne bønner
+        amount: 120
+        unit: g
+        prep: nipset
+      - ref: thaibasilikum
+        item: basilikum
+        label: thaibasilikum (ca. 12 blade)
+        amount: 1
+        unit: håndfuld
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: jasminris
+        label: jasmin- eller basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: chili
+        item: chili
+        label: frisk rød chili
+        amount: 0.5
+        unit: stk
+        prep: i skiver (valgfrit)
+        optional: true
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        optional: true
+
+steps:
+  - section: Thai rød karry med kylling
+    component_id: curry_base
+    items:
+      - "Varm {olie} op i en stor, tykbundet pande ved middelhøj varme."
+      - "Tilsæt {karrypasta} og steg cirka 2 minutter, til den dufter kraftigt og ser lidt mere \"tør\" ud."
+      - "Hæld {bouillon} i og rør, så karrypastaen opløses. Lad det koge 3 minutter, til væsken er reduceret til cirka det halve."
+      - "Tilsæt {kokosmaelk}, {limeblade}, {sukker} og {fiskesauce}."
+      - "Tilsæt {kylling} og bring tilbage til en rolig simren. Lad det simre 8–10 minutter, til kyllingen er gennemtilberedt, og saucen er blevet en smule tykkere."
+      - "Smag til med mere fiskesauce og/eller sukker, hvis du vil justere salt/sødme."
+      - "Tilsæt {graeskar} og {boenner}. Lad det simre, til græskarret netop er mørt (typisk 3–5 minutter)."
+      - "Sluk for varmen og vend {thaibasilikum} i."
+      - "Servér med {ris} og evt. {chili} og {koriander}."

@@ -1,0 +1,151 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: vegetar-panang-karry
+title: Vegetar panang karry
+source: https://www.valdemarsro.dk/vegetar-panang-karry/
+image: ../Files/images/vegetar-panang-karry.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 40
+  active_min: 20
+tags:
+  - vegetar
+  - thai
+  - karry
+  - peanutbutter
+  - kikærter
+notes: "Cremet thai panang karry med kikærter, edamamebønner og peanutbutter. Brune ris og peanut-topping kan slås til/fra."
+
+components:
+  - id: panang_base
+    title: Til panang
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakkede
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        prep: finthakkede
+      - ref: ingefaer
+        item: ingefær
+        amount: 20
+        unit: g
+        prep: fintrevet
+      - ref: karrypasta
+        item: karrypasta
+        label: panang-karrypasta
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: guleroedder
+        item: gulerødder
+        amount: 3
+        unit: stk
+        prep: skåret i strimler
+      - ref: broccoli
+        item: broccoli
+        amount: 200
+        unit: g
+        prep: delt i buketter
+      - ref: edamame
+        item: edamame
+        label: edamamebønner
+        amount: 100
+        unit: g
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: peberfrugter
+        item: peberfrugt
+        label: røde peberfrugter
+        amount: 2
+        unit: stk
+        prep: skåret i strimler
+      - ref: kikaerter
+        item: kikærter_dåse
+        label: kikærter (drænet)
+        amount: 240
+        unit: g
+        display_unit: dåse
+        prep: drænede og skyllede
+        scaling: whole_unit
+      - ref: peanutbutter
+        item: peanutbutter
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: soja
+        item: sojasauce
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: sukker
+        item: sukker
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: lime
+        item: lime
+        label: økologisk lime (fintrevet skal og saft)
+        amount: 1
+        unit: stk
+
+  - id: ris_carb
+    title: Til servering (brune ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: brune ris
+        amount: 300
+        unit: ml
+        display_unit: dl
+
+  - id: peanuts_topping
+    title: Topping (peanuts & koriander)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: peanuts
+        item: peanuts
+        label: saltede peanuts
+        amount: 100
+        unit: ml
+        display_unit: dl
+        prep: grofthakkede
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+
+steps:
+  - section: Vegetar panang karry
+    component_id: panang_base
+    items:
+      - "Kog {ris} efter anvisningen på pakken."
+      - "Varm {olie} op i en stor gryde ved middel varme. Sautér {loeg} og {hvidloeg} 4–5 minutter, til de er bløde og klare."
+      - "Tilsæt {ingefaer} og {karrypasta} og rør 30–60 sekunder, til det dufter."
+      - "Tilsæt {guleroedder}, {broccoli}, {edamame} og {kokosmaelk}. Bring i en rolig simren."
+      - "Læg låg på og lad det simre 15 minutter, til grøntsagerne er møre."
+      - "Tilsæt {peberfrugter}, {kikaerter} og {peanutbutter}. Rør, til peanutbutter er smeltet og saucen er cremet."
+      - "Smag til med {sukker}, {soja} samt skal og saft fra {lime}."
+      - "Server med {ris}, {koriander} og {peanuts}."

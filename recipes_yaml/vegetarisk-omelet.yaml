@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: vegetarisk-omelet
+title: Vegetarisk omelet
+source: https://www.mygorgeousrecipes.com/world-best-vegetarian-omelette/
+image: ../Files/images/vegetarisk-omelet.jpg
+servings: 1
+standard_kcal_per_portion: 540
+time:
+  total_min: 10
+  active_min: 10
+tags:
+  - vegetar
+  - æg
+  - hurtig
+  - proteinrig
+notes: "Hurtig proteinrig omelet med hytteost, parmesan, spinat og peberfrugt (1 stor mættende portion)."
+
+components:
+  - id: omelet_base
+    title: Til omeletten
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: aeg
+        item: æg
+        amount: 3
+        unit: stk
+      - ref: smoer
+        item: smør
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: peberfrugt
+        item: peberfrugt
+        amount: 0.25
+        unit: stk
+        prep: finthakket
+      - ref: loeg
+        item: løg
+        label: lille løg
+        amount: 1
+        unit: stk
+        grams_override: 80
+        prep: finthakket
+      - ref: spinat
+        item: spinat
+        amount: 30
+        unit: g
+      - ref: hytteost
+        item: hytteost
+        amount: 50
+        unit: g
+      - ref: parmesan
+        item: parmesan
+        amount: 10
+        unit: g
+        prep: revet
+      - item: salt
+        label: Salt og friskkværnet peber
+        amount: null
+
+steps:
+  - section: Omelet
+    component_id: omelet_base
+    items:
+      - "Hak {peberfrugt}, {loeg} og {spinat} fint."
+      - "Pisk {aeg} sammen med salt og peber, og rør {hytteost} i."
+      - "Smelt {smoer} på en slip-let pande ved middel varme."
+      - "Hæld æggemassen på og fordel den jævnt ved at vippe panden."
+      - "Når kanterne har sat sig, men toppen stadig er let rå, fordel {parmesan} og grønt over."
+      - "Løsn kanterne med en spatel og vend omeletten. Steg 1–2 minutter på den anden side og servér straks."

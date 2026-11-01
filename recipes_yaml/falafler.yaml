@@ -1,0 +1,112 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: falafler
+title: Falafler
+source: https://www.valdemarsro.dk/falafler/
+image: ../Files/images/falafler.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 720
+  active_min: 30
+tags:
+  - vegetar
+  - mellemøstlig
+  - kikærter
+  - fryseegnet
+notes: "Tørrede kikærter udblødes og optager vand (~2x vægt), mens kun det faktiske olieoptag under fritering (~80 g i alt, og ikke hele literen af fritureolie) tælles med i næringsberegningen."
+
+components:
+  - id: falafel_base
+    title: Til falafelfarsen & stegning
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: kikaerter
+        item: kikærter
+        label: tørrede kikærter
+        amount: 400
+        unit: g
+        prep: udblødt 12–24 timer og godt afdryppet
+      - ref: kartofler
+        item: kartofler
+        amount: 2
+        unit: stk
+        grams_override: 250
+        prep: skrællet og groftrevet (klem væske fra)
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        grams_override: 220
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        grams_override: 16
+        prep: finthakket
+      - ref: persille
+        item: persille
+        amount: 2
+        unit: håndfuld
+        grams_override: 30
+        prep: finthakket
+      - ref: aeg
+        item: æg
+        amount: 3
+        unit: stk
+      - ref: citron
+        item: citronsaft
+        label: saft af 0,5 citron
+        amount: 20
+        unit: ml
+        display_unit: spsk
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 20
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: koriander
+        item: stødt koriander
+        amount: 20
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: chili
+        item: chiliflager
+        label: stødt chili
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: salt
+        item: salt
+        amount: 10
+        unit: ml
+        display_unit: tsk
+      - ref: rasp
+        item: rasp
+        amount: 60
+        unit: ml
+        display_unit: spsk
+        grams_override: 40
+      - ref: fritureolie
+        item: solsikkeolie
+        label: fritureolie (heraf optages ~80 g under stegning; brug 1 liter i gryden)
+        amount: 80
+        unit: g
+        scaling: sublinear
+
+steps:
+  - section: Falafler
+    component_id: falafel_base
+    items:
+      - "Læg {kikaerter} i blød i koldt vand i 12–24 timer. Skift gerne vandet 1–2 gange. Hæld vandet fra og dryp kikærterne godt af."
+      - "Kør kikærter, {kartofler}, {loeg}, {hvidloeg} og {persille} i en foodprocessor, til det er fint men ikke helt puré."
+      - "Tilsæt {aeg}, {citron}, {spidskommen}, {koriander}, {chili}, {salt} og {rasp}. Kør kort, til farsen lige samler sig."
+      - "Hvis farsen føles våd og ikke kan formes, så tilsæt lidt ekstra rasp og lad den hvile 10 minutter."
+      - "Varm 1 liter {fritureolie} op til 175–180 grader. Form små falafler og steg dem ad flere omgange i 3–5 minutter, til de er gyldne og sprøde."
+      - "Lad falaflerne dryppe af på køkkenrulle. Server med et lille dryp citron og evt. et ekstra nip salt."

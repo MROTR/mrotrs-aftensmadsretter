@@ -1,0 +1,171 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: peanutbutter-wok-med-nudler
+title: Peanutbutter wok med nudler
+source: https://www.valdemarsro.dk/peanutbutter-wok-med-nudler/
+image: ../Files/images/peanutbutter-wok-med-nudler.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 30
+tags:
+  - vegetar
+  - asiatisk
+  - wok
+  - nudler
+  - hurtig
+notes: "Nudler, spejlæg og peanut-topping er opdelt i moduler, så du nemt kan skifte mellem tørrede nudler eller friske udon-nudler og slå spejlæg/topping til og fra."
+
+components:
+  - id: wok_base
+    title: Til wokken (grøntsager & peanut-kokossauce)
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: edamame
+        item: edamame
+        label: pillede edamamebønner (frosne)
+        amount: 300
+        unit: g
+      - ref: karrypasta
+        item: karrypasta
+        label: grøn karrypasta
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: ingefaer
+        item: ingefær
+        amount: 20
+        unit: g
+        prep: fintrevet
+      - ref: loeg
+        item: løg
+        amount: 3
+        unit: stk
+        prep: skåret i tynde både
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 3
+        unit: fed
+        prep: pressede
+      - ref: kokosmaelk
+        item: kokosmælk
+        amount: 400
+        unit: ml
+        display_unit: ml
+        scaling: whole_unit
+      - ref: soja
+        item: sojasauce
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: peanutbutter
+        item: peanutbutter
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: chili
+        item: chiliflager
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: broccoli
+        item: broccoli
+        amount: 1
+        unit: stk
+        prep: skåret i små buketter
+      - ref: gulerod
+        item: gulerødder
+        amount: 3
+        unit: stk
+        prep: skåret i tynde stave
+      - ref: spinat
+        item: spinat
+        amount: 200
+        unit: g
+      - ref: lime
+        item: limesaft
+        label: lime (saften herfra)
+        amount: 1
+        unit: stk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: nudler_carb
+    title: Nudler (tørvægt - standard)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: nudler
+        item: nudler
+        label: tørrede nudler (f.eks. ægnudler/fuldkornsnudler)
+        amount: 300
+        unit: g
+
+  - id: spejlaeg_side
+    title: Spejlæg
+    role: side
+    default_enabled: true
+    ingredients:
+      - ref: aeg
+        item: æg
+        amount: 4
+        unit: stk
+      - ref: stegeolie
+        item: olivenolie
+        label: olie eller smør til stegning
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+
+  - id: topping_side
+    title: Til servering (peanuts & sesam)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: peanuts
+        item: peanuts
+        amount: 40
+        unit: g
+        prep: grofthakkede
+      - ref: sesam
+        item: sesamfrø
+        amount: 20
+        unit: g
+      - ref: foraarsloeg
+        item: forårsløg
+        amount: 2
+        unit: stk
+        prep: finthakket (valgfrit)
+        optional: true
+      - ref: koriander
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        optional: true
+
+steps:
+  - section: Wok og nudler
+    component_id: wok_base
+    items:
+      - "Kog {nudler} i letsaltet vand efter anvisningen på pakken. Tilsæt {edamame} de sidste 2 minutter. Hæld vandet fra."
+      - "Varm en wok eller stor pande op ved middel varme. Rør {karrypasta} og {ingefaer} ud i lidt olie og steg 30–60 sekunder, til det dufter."
+      - "Tilsæt {loeg} og {hvidloeg} og steg 2–3 minutter, til løgene bliver bløde og blanke."
+      - "Hæld {kokosmaelk} i og rør {soja} og {peanutbutter} i, til saucen er helt glat."
+      - "Tilsæt {chili}, {broccoli} og {gulerod}. Lad det simre 4–6 minutter, til grøntsagerne er møre men stadig har bid."
+      - "Vend {spinat} i, til den falder sammen."
+      - "Vend nudler og edamame i. Smag til med {lime}, salt og friskkværnet peber."
+  - section: Spejlæg og servering
+    component_id: spejlaeg_side
+    items:
+      - "Steg {aeg} i {stegeolie}, til kanten er gylden og sprød, og hviden har sat sig."
+      - "Servér wokken med spejlæg, {peanuts} og {sesam} (og evt. {foraarsloeg} og {koriander})."

@@ -1,0 +1,181 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: beluga-bolognese
+title: Beluga Bolognese
+source: https://vegetariskhverdag.dk/2018/12/beluga-bolognese/
+image: ../Files/image.png
+servings: 6
+standard_kcal_per_portion: 650
+time:
+  total_min: "45–90"
+  active_min: 25
+tags:
+  - vegetar
+  - italiensk
+  - pasta
+  - linser
+  - fryseegnet
+notes: "Saucen og pastaen er adskilt i moduler, så du både kan se næringsindholdet for selve bolognesesaucen (f.eks. til frys) og den samlede tallerken med pasta og fløde/parmesan."
+
+components:
+  - id: sauce_base
+    title: Til saucen
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.88
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        label: stort løg
+        amount: 1
+        unit: stk
+        grams_override: 150
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        label: store fed hvidløg
+        amount: 3
+        unit: fed
+        grams_override: 15
+        prep: finthakket
+      - ref: gulerod
+        item: gulerod
+        amount: 1
+        unit: stk
+        prep: fintrevet
+      - ref: chili
+        item: chiliflager
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        optional: true
+        scaling: sublinear
+      - ref: timian
+        item: timian
+        label: frisk timian
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: "finthakket (eller 1 tsk tørret)"
+      - ref: smoer
+        item: smør
+        label: smør eller smørbar
+        amount: 25
+        unit: g
+      - ref: tomatpure
+        item: tomatpuré
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: roedvin
+        item: rødvin
+        amount: 150
+        unit: ml
+        display_unit: dl
+      - ref: passata
+        item: passata
+        label: passata (mosede tomater) eller hakkede tomater
+        amount: 400
+        unit: g
+        scaling: whole_unit
+      - ref: laurbaer
+        item: laurbærblade
+        amount: 2
+        unit: stk
+      - ref: fond
+        item: grøntsagsbouillon
+        label: koncentreret grøntsagsfond eller 1 bouillonterning
+        amount: 15
+        unit: ml
+        display_unit: spsk
+      - ref: vand
+        item: vand
+        amount: 200
+        unit: ml
+        display_unit: dl
+        prep: plus ekstra efter behov
+      - ref: linser
+        item: belugalinser
+        amount: 130
+        unit: g
+        prep: "skyllet (ca. 1.5 dl)"
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+      - ref: sukker
+        item: sukker
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        optional: true
+      - ref: eddike
+        item: eddike
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        optional: true
+
+  - id: pasta_carb
+    title: Til servering (pasta)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: pasta
+        item: spaghetti
+        label: spaghetti eller anden pasta (tørvægt)
+        amount: 600
+        unit: g
+
+  - id: floede_opt
+    title: Tilvalg i saucen (fløde)
+    role: optional
+    default_enabled: false
+    ingredients:
+      - ref: floede
+        item: piskefløde
+        label: fløde (eller 1 dl sødmælk)
+        amount: 100
+        unit: ml
+        display_unit: dl
+        optional: true
+
+  - id: topping_opt
+    title: Topping (parmesan & urter)
+    role: topping
+    default_enabled: false
+    ingredients:
+      - ref: parmesan
+        item: parmesan
+        amount: 60
+        unit: g
+        prep: "fintrevet (ca. 10 g pr. portion)"
+        optional: true
+      - ref: persille
+        item: persille
+        label: bredbladet persille
+        amount: 1
+        unit: håndfuld
+        prep: finthakket (kan udelades)
+        optional: true
+
+steps:
+  - section: Sauce og servering
+    component_id: sauce_base
+    items:
+      - "Varm {olie} op i en stor gryde ved lav til middel varme. Sautér {loeg} i 5–10 minutter, til det er helt blødt og let gyldent."
+      - "Tilsæt {hvidloeg}, {gulerod}, {chili}, {timian} og {smoer}. Sautér 2 minutter, til det dufter og smørret er smeltet."
+      - "Skub grøntsagerne til siden. Steg {tomatpure} i 1–2 minutter i bunden af gryden, til den bliver mørkere og lidt \"ristet\" i duften."
+      - "Hæld {roedvin} i og lad det koge 1–2 minutter, til det ikke længere dufter sprittet."
+      - "Rør {floede} i (hvis du bruger det). Tilsæt {passata}, {laurbaer}, {fond} og {vand}. Bring i kog."
+      - "Skru ned og lad saucen simre under låg i 10–30 minutter, til den smager mere rund og begynder at tykne."
+      - "Rør {linser} i. Lad simre 20–25 minutter uden hårdt kog, til linserne er møre men stadig har lidt bid, og saucen kan dække bagsiden af en ske. Tilsæt ekstra vand undervejs, hvis den bliver for tyk."
+      - "Smag til med salt og masser af friskkværnet peber. Justér efter smag med lidt {sukker} (hvis den er for syrlig) og en smule {eddike} (hvis den mangler \"kant\")."
+      - "Kog {pasta} i rigeligt saltet vand, til den er al dente. Server med bolognese, {parmesan}, peber og evt. {persille}."

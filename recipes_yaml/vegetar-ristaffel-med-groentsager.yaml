@@ -1,0 +1,170 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: vegetar-ristaffel-med-groentsager
+title: Vegetar ristaffel med grøntsager
+source: https://www.valdemarsro.dk/vegetar-ristaffel-med-groentsager/
+image: ../Files/images/vegetar-ristaffel-med-groentsager.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 30
+  active_min: 30
+tags:
+  - vegetar
+  - karry
+  - ris
+  - hurtig
+  - børnevenlig
+notes: "Cremet blendet grøntsagskarrysauce med klassiske ristaffel-toppings (banan, kokos, rosiner og peanuts)."
+
+components:
+  - id: karrysauce_base
+    title: Til karrysaucen
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.92
+    ingredients:
+      - ref: karry
+        item: karry
+        label: karry (medium)
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: olie
+        item: olivenolie
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 1
+        unit: stk
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakkede
+      - ref: karrypasta
+        item: karrypasta
+        label: rød karrypasta
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: gurkemeje
+        item: gurkemeje
+        label: stødt gurkemeje
+        amount: 5
+        unit: ml
+        display_unit: tsk
+      - ref: blomkaal
+        item: blomkål
+        amount: 250
+        unit: g
+        prep: i små buketter
+      - ref: gulerod
+        item: gulerod
+        amount: 75
+        unit: g
+        prep: groftrevet
+      - ref: squash
+        item: squash
+        amount: 250
+        unit: g
+        prep: groftrevet
+      - ref: aeble
+        item: æble
+        amount: 1
+        unit: stk
+        prep: groftrevet
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 400
+        unit: ml
+        display_unit: dl
+      - ref: floede
+        item: piskefløde
+        amount: 50
+        unit: ml
+        display_unit: dl
+      - ref: citronsaft
+        item: citronsaft
+        label: saft af 0,5 citron
+        amount: 20
+        unit: ml
+        display_unit: spsk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet sort peber
+        amount: null
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+
+  - id: toppings_side
+    title: Toppings
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: kokos
+        item: kokosmel
+        label: kokosflager eller kokosmel
+        amount: 30
+        unit: g
+      - ref: rosiner
+        item: rosiner
+        amount: 30
+        unit: g
+      - ref: bananer
+        item: banan
+        label: bananer
+        amount: 2
+        unit: stk
+        grams_override: 220
+        prep: skåret i skiver
+      - ref: peanuts
+        item: peanuts
+        label: saltede peanuts
+        amount: 50
+        unit: g
+      - ref: persille
+        item: persille
+        label: bredbladet persille
+        amount: 1
+        unit: håndfuld
+        prep: finthakket
+
+steps:
+  - section: Vegetar ristaffel
+    component_id: karrysauce_base
+    items:
+      - "Kog {ris} efter anvisningen på pakken."
+      - "Rist {karry}, {spidskommen} og {koriander_stoedt} i en tør gryde ved middel varme i 30–60 sekunder, til det dufter."
+      - "Tilsæt {olie}, {loeg} og {hvidloeg} og sautér 4–5 minutter, til løgene er bløde og klare."
+      - "Tilsæt {karrypasta} og {gurkemeje} og rør 30 sekunder."
+      - "Tilsæt {blomkaal}, {gulerod}, {squash}, {aeble} og {bouillon}. Bring i kog."
+      - "Læg låg på og lad det simre cirka 5 minutter, til blomkålen er mør."
+      - "Blend saucen helt cremet og hæld den tilbage i gryden."
+      - "Tilsæt {floede} og {citronsaft}. Smag til med salt og peber. Justér med lidt ekstra bouillon, hvis den er for tyk."
+      - "Servér ris og karrysauce med {kokos}, {rosiner}, {bananer}, {peanuts} og {persille} i skåle på bordet."
