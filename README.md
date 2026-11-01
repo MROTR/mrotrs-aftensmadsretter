@@ -7,8 +7,8 @@ Dette katalog indeholder hele opskriftssamlingen, næringsdatabasen (baseret på
 ## Overblik over arkitekturen
 
 ```text
-
-├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 31 strukturerede YAML v2-opskrifter
+Aftensmadsretter/
+├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 32 strukturerede YAML v2-opskrifter
 ├── schemas/
 │   └── recipe.schema.json   # JSON Schema til VS Code auto-complete og validering af YAML-filer
 ├── tools/
@@ -34,23 +34,26 @@ Dette katalog indeholder hele opskriftssamlingen, næringsdatabasen (baseret på
 
 Kør altid kommandoerne fra repo-roden:
 
-### 1. Byg både Markdown-filer og mobil-webapp efter ændringer i `recipes_yaml/`
+### 1. Byg alt automatisk (Markdown-filer, billeder, oversigter og mobil-webapp)
 ```bash
-python3 tools/build_recipes.py --write-md
+python3 Aftensmadsretter/tools/build_recipes.py --write-md
 ```
+Dette er **hovedkommandoen**, som automatisk:
+* Henter, optimerer og lokaliserer eksterne opskriftsbilleder (`image: https://...` i YAML) direkte til `Files/images/<id>.jpg` og opdaterer YAML-stien.
 * Validerer at **alle** ingrediens-ID'er (`item`) findes i `nutrition_db.json`. Hvis en ingrediens mangler, fejler scriptet med exit-kode `1` og viser præcis hvilket ID der mangler.
-* Opdaterer alle `.md`-filer i `recipes/` samt `nutrition-summary.md`.
-* Opdaterer `webapp/recipes_data.js`.
+* Genererer/opdaterer alle Markdown-filer i `Aftensmadsretter/recipes/` samt `nutrition-summary.md`.
+* Auto-opdaterer oversigterne i både `Aftensmadsretter/README.md` (antal og alfabetisk liste) og `recipes/liste-af-retter.md`.
+* Bundler mobil-webapp'en til `Aftensmadsretter/webapp/recipes_data.js`.
 
 ### 2. Søg i ingrediensdatabasen (`nutrition_db.json`)
 ```bash
-python3 tools/frida_lookup.py --search "kokos"
+python3 Aftensmadsretter/tools/frida_lookup.py --search "kokos"
 ```
 
 ### 3. Tilføj en ny ingrediens (enten fra DTU Frida eller en custom supermarkedsvare)
 ```bash
 # Eksempel A: Tilføj en vare med reference til DTU Frida FoodID
-python3 tools/frida_lookup.py \
+python3 Aftensmadsretter/tools/frida_lookup.py \
   --add "røde linser" \
   --frida-id 144 \
   --frida-name "Linser, tørrede, rå" \
@@ -58,7 +61,7 @@ python3 tools/frida_lookup.py \
   --density 0.85 --hydration 2.5 --aisle kolonial
 
 # Eksempel B: Tilføj en custom vare (f.eks. fra varedeklaration i Rema 1000 / Netto)
-python3 tools/frida_lookup.py \
+python3 Aftensmadsretter/tools/frida_lookup.py \
   --add "plantefars" \
   --frida-name "Plantefars (Rema 1000)" \
   --kcal 165 --protein 18.0 --carb 3.0 --fat 8.0 --fiber 6.0 \
@@ -74,26 +77,29 @@ Gyldige værdier for `--aisle` (bruges til at sortere indkøbslisten i butiksræ
 * `frost` (❄️ Frost)
 * `basis_og_krydderier` (🧂 Krydderier, Olie & Basisvarer)
 
-### 4. Hent og optimér eksterne opskriftsbilleder lokalt
-Hvis du har indsat et `https://...`-billede i en ny YAML-opskrift:
+### 4. Standalone billed-optimering (valgfrit)
+`build_recipes.py --write-md` klarer automatisk billederne, men værktøjet kan også køres isoleret:
 ```bash
-python3 tools/sync_images.py
+python3 Aftensmadsretter/tools/sync_images.py
 ```
 Dette downloader billedet, skalerer det til maks. 900px bredde i JPEG (`Files/images/<id>.jpg`) og opdaterer `image:`-feltet i YAML-filen.
 
 ### 5. Åbn eller test PWA'en lokalt
-Du kan åbne `webapp/index.html` direkte i din browser, eller starte en lokal webserver:
+Du kan åbne `Aftensmadsretter/webapp/index.html` direkte i din browser, eller starte en lokal webserver:
 ```bash
-python3 -m http.server 8000 --directory webapp
+python3 -m http.server 8000 --directory Aftensmadsretter/webapp
 ```
 
-### 6. Eksport til Microsoft To Do & Deling med andre
-I **🛒 Indkøbsliste**-visningen i PWA'en er der indbygget direkte understøttelse af **Microsoft To Do** og mobildeling:
-* **☑️ Kopiér til Microsoft To Do:**
-  * Kopierer alle **uafkrydsede** varer (i supermarkeds-rækkefølge) som rene tekstlinjer uden overskrifter eller bullets, og udelader automatisk *Krydderier, Olie & Basisvarer* (medmindre du sætter flueben i *"Medtag krydderier/basisvarer ved eksport"*).
-  * Når du åbner en delt liste (f.eks. *"Indkøb"*) i **Microsoft To Do** på telefon eller computer og indsætter i *"Tilføj en opgave"*-feltet, genkender Microsoft To Do linjeskiftene og opretter automatisk hver vare som sit eget interaktive tjekliste-punkt, som synkroniserer live med dem, du deler listen med.
-* **📤 Del liste… (Web Share API):**
-  * Åbner telefonens indbyggede Del-menu (iOS/Android), så du med ét tryk kan sende den formaterede indkøbsliste via SMS, Messenger, WhatsApp, Apple Påmindelser eller Microsoft To Do.
+### 6. Direkte synkronisering til Microsoft To Do (iPhone & Desktop) og Deling
+Microsoft To Do-appen på iPhone opretter desværre kun **én samlet opgave**, når man indsætter flere linjer via udklipsholderen. Derfor har **🛒 Indkøbsliste**-visningen i PWA'en indbygget tre måder at oprette hver vare som sit eget tjekliste-punkt:
+* **🚀 Send direkte til To Do (Microsoft Graph API):**
+  * Forbind én gang via **⚙️ Opsætning** (med OAuth 2.0 PKCE `Application (client) ID` eller et Graph Access Token).
+  * Vælg din ønskede Microsoft To Do-liste direkte i rullemenuen (f.eks. *"Indkøb"*, eller opret en ny liste med **+ Ny liste**).
+  * Tryk **🚀 Send direkte til To Do** — så oprettes alle uafkrydsede varer (i supermarkeds-rækkefølge, ekskl. krydderier medmindre tilvalgt) som individuelle opgaver på ~1 sekund via Microsoft Graph `$batch`.
+* **📲 iPhone Genvej (`Tilføj til To Do`):**
+  * Sender alle linjer direkte til en Apple Genvej (*Opdel tekst ved Nye linjer* → *Gentag med hver* → *Microsoft To Do: Tilføj opgave*), som opretter hver vare enkeltvis i To Do-appen uden API-opsætning.
+* **☑️ Kopiér linjer (Web/PC) & 📤 Del liste… (Web Share API):**
+  * Kopierer rene varelinjer (til indsættelse i `to-do.office.com` på PC/Mac, som automatisk opdeler linjeskift i separate opgaver) eller åbner telefonens indbyggede Del-menu.
 
 ---
 
@@ -117,12 +123,13 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 
 ---
 
-## Opskrifter (31 retter)
+## Opskrifter (32 retter)
 
 * [Bagt ratatouille](recipes/bagt-ratatouille.md) ([YAML](recipes_yaml/bagt-ratatouille.yaml))
 * [Beluga Bolognese](recipes/beluga-bolognese.md) ([YAML](recipes_yaml/beluga-bolognese.yaml))
 * [Bolognese m. fake kød](recipes/bolognese-m-fake-koed.md) ([YAML](recipes_yaml/bolognese-m-fake-koed.yaml))
 * [Chana masala](recipes/chana-masala.md) ([YAML](recipes_yaml/chana-masala.yaml))
+* [Chili sin carne](recipes/chili-sin-carne.md) ([YAML](recipes_yaml/chili-sin-carne.yaml))
 * [Cremede kartofler](recipes/cremede-kartofler.md) ([YAML](recipes_yaml/cremede-kartofler.yaml))
 * [Dhal](recipes/dhal.md) ([YAML](recipes_yaml/dhal.yaml))
 * [Falafler](recipes/falafler.md) ([YAML](recipes_yaml/falafler.yaml))
@@ -134,11 +141,11 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 * [Kokosmælk Wok karry](recipes/kokosmaelk-wok-karry.md) ([YAML](recipes_yaml/kokosmaelk-wok-karry.yaml))
 * [Linsekarry med ris](recipes/linsekarry-med-ris.md) ([YAML](recipes_yaml/linsekarry-med-ris.yaml))
 * [Mexikansk risret](recipes/mexikansk-risret.md) ([YAML](recipes_yaml/mexikansk-risret.yaml))
-* [Quinoa i én pande med krydret paneer og grøntsager](recipes/one-pan-quinoa-with-spiced-paneer-and-vegetables.md) ([YAML](recipes_yaml/one-pan-quinoa-with-spiced-paneer-and-vegetables.yaml))
 * [Peanutbutter wok med nudler](recipes/peanutbutter-wok-med-nudler.md) ([YAML](recipes_yaml/peanutbutter-wok-med-nudler.yaml))
-* [Råstegte kartofler](recipes/raastegte-kartofler.md) ([YAML](recipes_yaml/raastegte-kartofler.yaml))
+* [Quinoa i én pande med krydret paneer og grøntsager](recipes/one-pan-quinoa-with-spiced-paneer-and-vegetables.md) ([YAML](recipes_yaml/one-pan-quinoa-with-spiced-paneer-and-vegetables.yaml))
 * [Red thai curry](recipes/red-thai-curry.md) ([YAML](recipes_yaml/red-thai-curry.yaml))
 * [Risengrød](recipes/risengroed.md) ([YAML](recipes_yaml/risengroed.yaml))
+* [Råstegte kartofler](recipes/raastegte-kartofler.md) ([YAML](recipes_yaml/raastegte-kartofler.yaml))
 * [Stenalderbrød](recipes/stenalderbroed.md) ([YAML](recipes_yaml/stenalderbroed.yaml))
 * [Svampe stroganoff](recipes/svampe-stroganoff.md) ([YAML](recipes_yaml/svampe-stroganoff.yaml))
 * [Svampelasagne](recipes/svampelasagne.md) ([YAML](recipes_yaml/svampelasagne.yaml))

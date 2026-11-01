@@ -1,0 +1,198 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: chili-sin-carne
+title: Chili sin carne
+source: https://www.valdemarsro.dk/chili-sin-carne/
+image: ../Files/images/chili-sin-carne.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 45
+  active_min: 15
+tags:
+  - vegetar
+  - bønner
+  - mexicansk
+  - gryderet
+notes: "Klassisk fyldig chili sin carne fyldt med grøntsager (squash, aubergine og bladselleri), kidneybønner og mørk chokolade. Serveres med ris, sprøde nachos, cremefraiche, revet cheddar, frisk chili, koriander og lime. 3 dl basmatiris (ca. 255–300 g tørvægt) giver ca. 750 g kogte ris. 2 dåser drænede kidneybønner svarer til 480 g."
+
+components:
+  - id: chili_base
+    title: Til chili sin carne
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: spidskommen
+        item: spidskommen
+        label: stødt spidskommen
+        amount: 7.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: kanel
+        item: kanel
+        label: stødt kanel
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: koriander_stoedt
+        item: stødt koriander
+        amount: 7.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: paprika
+        item: paprika
+        label: røget paprika
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: chiliflager
+        item: chiliflager
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: olie
+        item: olivenolie
+        label: olivenolie (til stegning)
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: roedloeg
+        item: rødløg
+        amount: 2
+        unit: stk
+        prep: finthakkede
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakkede
+      - ref: squash
+        item: squash
+        amount: 1
+        unit: stk
+        prep: groftrevet
+      - ref: bladselleri
+        item: bladselleri
+        label: stængler bladselleri
+        amount: 2
+        unit: stk
+        grams_override: 80
+        prep: groftrevet
+      - ref: aubergine
+        item: aubergine
+        amount: 1
+        unit: stk
+        prep: groftrevet
+      - ref: soltoerrede_tomater
+        item: soltørrede tomater
+        label: soltørrede tomater i olie
+        amount: 45
+        unit: ml
+        display_unit: spsk
+        prep: finthakkede
+      - ref: tomater
+        item: hakkede tomater
+        label: hakkede tomater på dåse
+        amount: 400
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: kidneyboenner
+        item: kidneybønner_dåse
+        label: kidneybønner (drænet)
+        amount: 480
+        unit: g
+        display_unit: dåse
+        prep: drænede og skyllede
+        scaling: whole_unit
+      - ref: chokolade
+        item: mørk chokolade
+        amount: 30
+        unit: g
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        label: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+        prep: kogt efter anvisning på pakken
+
+  - id: topping_side
+    title: Til servering (cremefraiche, cheddar & urter)
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: cremefraiche
+        item: creme fraiche 18
+        label: cremefraiche 18 %
+        amount: 100
+        unit: g
+      - ref: cheddar
+        item: cheddar
+        amount: 100
+        unit: g
+        prep: revet
+      - ref: chili_frisk
+        item: chili
+        label: rød chili
+        amount: 0.5
+        unit: stk
+        prep: finthakket (juster efter smag)
+      - ref: koriander_frisk
+        item: koriander
+        label: frisk koriander
+        amount: 1
+        unit: håndfuld
+        prep: grofthakket
+      - ref: lime
+        item: lime
+        amount: 1
+        unit: stk
+        prep: skåret i både
+
+  - id: nachos_side
+    title: Tilbehør (nachos)
+    role: side
+    default_enabled: false
+    ingredients:
+      - ref: nachos
+        item: nachos
+        label: nachos (eller tortillachips)
+        amount: 125
+        unit: g
+        optional: true
+
+steps:
+  - section: Chili sin carne
+    component_id: chili_base
+    items:
+      - "Kog {ris} efter anvisningen på pakken, så de er klar ved servering."
+      - "Varm en tør sauterpande eller en stor gryde op ved middel varme. Tilsæt {spidskommen}, {kanel}, {koriander_stoedt}, {paprika} og {chiliflager}, og rist krydderierne igennem under omrøring i 1–2 minutter, til de dufter kraftigt."
+      - "Skru en smule ned for varmen og tilsæt {olie}, {roedloeg} og {hvidloeg}. Sautér i 3–5 minutter, til løgene er bløde og klare."
+      - "Tilsæt {squash}, {aubergine}, {bladselleri}, {tomater}, {soltoerrede_tomater} og {bouillon}. Rør det godt sammen, læg låg på og lad retten simre ved svag varme i 30 minutter."
+      - "Skyl og afdryp {kidneyboenner}, tilsæt dem til gryden, og lad retten simre videre under låg i 5 minutter, til bønnerne er gennemvarme."
+      - "Tag gryden af varmen og rør {chokolade} i — start med halvdelen og smag til med resten samt salt og friskkværnet peber (tilsæt evt. ekstra chili, hvis retten skal være stærkere)."
+      - "Anret den varme chili sin carne i skåle og servér med de kogte {ris}, sprøde {nachos}, en klat {cremefraiche}, revet {cheddar}, {chili_frisk}, {koriander_frisk} og både af {lime} til at presse over."

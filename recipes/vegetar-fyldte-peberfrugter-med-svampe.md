@@ -26,7 +26,7 @@ Antagelser (kort): Bagte peberfrugter med cremet svampe- og kidneybønnefyld gra
 - [ ] 1 teskefuld stødt spidskommen
 - [ ] 1 teskefuld stødt koriander
 - [ ] 1 dåse hakkede tomater
-- [ ] 0.6 dåser kidneybønner (drænet), drænede og skyllede
+- [ ] 1 dåse kidneybønner (drænet), drænede og skyllede
 - [ ] 75 gram flødeost (naturel)
 - [ ] 4 røde peberfrugter, halveret og uden kerner
 - [ ] 1 deciliter grøntsagsbouillon

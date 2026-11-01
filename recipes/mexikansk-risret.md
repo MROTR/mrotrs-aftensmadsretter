@@ -36,7 +36,7 @@ Antagelser (kort): One-pot mexicansk risret med sorte bønner og grøntsager. To
 - [ ] 300 gram basmatiris, skyllet
 - [ ] 6 deciliter grøntsagsbouillon
 - [ ] 1 dåse hakkede tomater
-- [ ] 0.6 dåser sorte bønner (drænet), drænede og skyllede
+- [ ] 1 dåse sorte bønner (drænet), drænede og skyllede
 - [ ] 140 gram majs, fra dåse eller frost
 - [ ] 2 røde peberfrugter, skåret i små tern
 - [ ] 125 gram cherrytomater, skåret i både

@@ -28,7 +28,7 @@ Antagelser (kort): Standardmængder til 4 personer er sat ind, så retten kan sk
 - [ ] 500 gram kartofler, skåret i tern
 - [ ] 1 dåse hakkede tomater
 - [ ] 4 deciliter okse- eller grøntsagsbouillon
-- [ ] 0.6 dåser kidneybønner (drænet), drænet og skyllede
+- [ ] 1 dåse kidneybønner (drænet), drænet og skyllede
 - [ ] 150 gram frosne ærter
 - [ ] 2 teskefulde tørret oregano
 - [ ] Friskkværnet peber

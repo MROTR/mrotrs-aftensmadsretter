@@ -47,7 +47,10 @@
         "knivspids": 1,
         "skive": 40,
         "skiver": 40,
-        "æg": 60
+        "æg": 60,
+        "kidneybønner_dåse": 240.0,
+        "nachos": 125.0,
+        "tortillachips": 125.0
     },
     "ingredients": {
         "__COMMENT_VEGETABLES__": "--- Vegetables ---",
@@ -890,7 +893,8 @@
             "source": "custom",
             "density_g_per_ml": 1.0,
             "hydration_factor": 1.0,
-            "aisle": "kolonial"
+            "aisle": "kolonial",
+            "unit_weight_g": 240
         },
         "sorte bønner": {
             "kcal": 341,
@@ -3261,6 +3265,61 @@
             "density_g_per_ml": 0.45,
             "hydration_factor": 1.0,
             "aisle": "kolonial"
+        },
+        "soltørrede tomater": {
+            "frida_id": null,
+            "frida_name": "Soltørrede tomater i olie",
+            "source": "custom",
+            "kcal": 215.0,
+            "protein": 4.2,
+            "fat": 13.0,
+            "carb": 16.5,
+            "fiber": 6.5,
+            "density_g_per_ml": 1.0,
+            "hydration_factor": 1.0,
+            "aisle": "kolonial"
+        },
+        "kidneybønner_dåse": {
+            "frida_id": null,
+            "frida_name": "Kidneybønner, konserves, drænede",
+            "source": "custom",
+            "kcal": 110.0,
+            "protein": 8.5,
+            "fat": 0.7,
+            "carb": 14.0,
+            "fiber": 6.5,
+            "density_g_per_ml": 1.0,
+            "hydration_factor": 1.0,
+            "aisle": "kolonial",
+            "unit_weight_g": 240.0
+        },
+        "nachos": {
+            "frida_id": null,
+            "frida_name": "Nachos / tortillachips, saltede",
+            "source": "custom",
+            "kcal": 480.0,
+            "protein": 6.5,
+            "fat": 22.0,
+            "carb": 64.0,
+            "fiber": 4.0,
+            "density_g_per_ml": 0.35,
+            "hydration_factor": 1.0,
+            "aisle": "kolonial",
+            "unit_weight_g": 125.0
+        },
+        "tortillachips": {
+            "frida_id": null,
+            "frida_name": "Tortillachips / nachos, saltede",
+            "source": "custom",
+            "kcal": 480.0,
+            "protein": 6.5,
+            "fat": 22.0,
+            "carb": 64.0,
+            "fiber": 4.0,
+            "density_g_per_ml": 0.35,
+            "hydration_factor": 1.0,
+            "aisle": "kolonial",
+            "unit_weight_g": 125.0
         }
     },
     "schema_version": "2.0-dtu-frida-hybrid"

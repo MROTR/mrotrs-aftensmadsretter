@@ -8,6 +8,7 @@ Auto-genereret fra `recipes_yaml/*.yaml` med DTU Frida / custom næringsdata.
 | [Beluga Bolognese](beluga-bolognese.md) | `beluga-bolognese.yaml` | 583 | 438 | 133.2 | 19.8 | 89.5 | 12.3 | 8.5 |
 | [Bolognese m. fake kød](bolognese-m-fake-koed.md) | `bolognese-m-fake-koed.yaml` | 597 | 454 | 131.6 | 27.1 | 77.5 | 17.3 | 12.0 |
 | [Chana masala](chana-masala.md) | `chana-masala.yaml` | 570 | 543 | 104.8 | 17.1 | 85.5 | 14.7 | 12.7 |
+| [Chili sin carne](chili-sin-carne.md) | `chili-sin-carne.yaml` | 762 | 669 | 114.0 | 26.9 | 88.8 | 30.1 | 17.2 |
 | [Cremede kartofler](cremede-kartofler.md) | `cremede-kartofler.yaml` | 408 | 283 | 144.2 | 6.2 | 38.2 | 24.3 | 3.4 |
 | [Dhal](dhal.md) | `dhal.yaml` | 738 | 629 | 117.4 | 30.9 | 47.0 | 43.8 | 12.0 |
 | [Falafler](falafler.md) | `falafler.yaml` | 728 | 285 | 256.0 | 28.3 | 85.8 | 31.1 | 20.8 |

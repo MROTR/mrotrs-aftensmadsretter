@@ -64,10 +64,16 @@
       <div class="detail-nav" style="flex-wrap:wrap; gap:10px;">
         <button id="backFromShoppingBtn" class="back-btn">← Tilbage til opskrifter</button>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button id="todoExportBtn" class="todo-btn" title="Kopiér ét punkt pr. linje (uden krydderier/afkrydsede) og åbn Microsoft To Do">
-            ☑️ Kopiér til Microsoft To Do
+          <button id="todoDirectSendBtn" class="todo-primary-btn" title="Opret hver vare som sin egen opgave direkte i Microsoft To Do via API">
+            🚀 Send direkte til To Do
           </button>
-          <button id="shareShoppingBtn" class="snap-btn" title="Del indkøbslisten via telefonens Del-menu (SMS, Messenger, To Do, Noter)">
+          <button id="iosShortcutBtn" class="todo-btn" title="Kør iPhone-genvej 'Tilføj til To Do' som opretter hver linje som separat opgave i To Do-appen">
+            📲 iPhone Genvej
+          </button>
+          <button id="todoExportBtn" class="secondary-btn" title="Kopiér ét punkt pr. linje (til indsættelse i Microsoft To Do på Web/PC)">
+            ☑️ Kopiér linjer (Web/PC)
+          </button>
+          <button id="shareShoppingBtn" class="snap-btn" title="Del indkøbslisten via telefonens Del-menu (SMS, Messenger, Påmindelser, Noter)">
             📤 Del liste…
           </button>
           <button id="copyShoppingBtn" class="secondary-btn" title="Kopiér hele listen med overskrifter">
@@ -79,6 +85,84 @@
 
       <div id="shoppingContent"></div>
     </section>
+
+    <!-- MICROSOFT TO DO SETUP & CONNECTION MODAL -->
+    <div id="todoModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="todoModalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="todoModalTitle">☑️ Forbind til Microsoft To Do (1-klik oprettelse på iPhone)</h3>
+          <button id="closeTodoModalBtn" class="modal-close-btn" aria-label="Luk">✕</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-intro">
+            Microsoft To Do-appen på iPhone opretter desværre kun <strong>én samlet opgave</strong>, når man indsætter flere linjer fra udklipsholderen.
+            Her kan du vælge mellem <strong>direkte API-synkronisering</strong> (opretter hver ingrediens som en separat opgave via Microsoft Graph) eller en <strong>iPhone Genvej</strong>.
+          </p>
+
+          <div class="modal-section">
+            <h4>Metode 1: Direkte Microsoft Login (OAuth 2.0 PKCE — anbefalet)</h4>
+            <p class="modal-hint">
+              Log ind med din Microsoft-konto direkte i browseren. Kræver et gratis <em>Application (client) ID</em> fra Azure (tager 1 minut at oprette én gang):
+            </p>
+            <details class="setup-details">
+              <summary>📖 Vis 1-minuts guide til at oprette Client ID</summary>
+              <ol class="setup-steps">
+                <li>Åbn <a href="https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade" target="_blank" rel="noopener">Azure App Registrations ↗</a> og tryk <strong>New registration</strong>.</li>
+                <li>Navn: <code>Aftensmadsretter</code>. Vælg <strong>Accounts in any organizational directory and personal Microsoft accounts</strong> (eller <em>Personal Microsoft accounts only</em>).</li>
+                <li>Under <strong>Redirect URI</strong>: Vælg platformen <strong>Single-page application (SPA)</strong> og indsæt denne nøjagtige adresse:<br/>
+                  <div class="uri-copy-row">
+                    <code id="todoRedirectUriCode"></code>
+                    <button type="button" id="copyRedirectUriBtn" class="secondary-btn" style="padding:4px 8px; font-size:0.78rem;">📋 Kopiér URI</button>
+                  </div>
+                </li>
+                <li>Tryk <strong>Register</strong>, kopiér <strong>Application (client) ID</strong>, og indsæt det herunder.</li>
+              </ol>
+            </details>
+            <div class="form-row">
+              <label for="todoClientIdInput">Application (client) ID</label>
+              <input type="text" id="todoClientIdInput" placeholder="f.eks. 12345678-abcd-1234-ef00-1234567890ab" autocomplete="off" spellcheck="false" />
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
+              <button type="button" id="todoOAuthLoginBtn" class="todo-primary-btn">🔐 Log ind med Microsoft</button>
+              <button type="button" id="todoSaveClientIdBtn" class="secondary-btn">Gem Client ID</button>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h4>Metode 2: Hurtig Access Token (uden oprettelse af App ID)</h4>
+            <p class="modal-hint">
+              Vil du sende varer med det samme uden at registrere en Azure-app? Åbn
+              <a href="https://developer.microsoft.com/en-us/graph/graph-explorer" target="_blank" rel="noopener">Microsoft Graph Explorer ↗</a>,
+              log ind, giv tilladelse til <code>Tasks.ReadWrite</code>, kopiér din <strong>Access token</strong>-streng, og indsæt den her:
+            </p>
+            <div class="form-row">
+              <label for="todoManualTokenInput">Microsoft Graph Access Token</label>
+              <input type="password" id="todoManualTokenInput" placeholder="Indsæt Bearer token (eyJ0eXAiOiJKV1Qi...)" autocomplete="off" spellcheck="false" />
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
+              <button type="button" id="todoSaveTokenBtn" class="snap-btn">💾 Gem Token & Hent To Do-lister</button>
+              <button type="button" id="todoDisconnectBtn" class="secondary-btn">Log ud / Nulstil</button>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h4>Metode 3: iPhone Genvej (Apple Shortcuts → Microsoft To Do-appen uden API)</h4>
+            <p class="modal-hint">
+              På iPhone kan du også oprette en genvej i Apples <strong>Genveje (Shortcuts)</strong>-app med navnet <code>Tilføj til To Do</code>:
+            </p>
+            <ol class="setup-steps">
+              <li>Åbn <strong>Genveje</strong> på din iPhone, tryk <strong>+</strong> og omdøb genvejen til præcis <code>Tilføj til To Do</code>.</li>
+              <li>Tilføj handlingen <strong>Opdel tekst</strong>: Sæt den til at opdele <em>Genvejsinput</em> (eller <em>Udklipsholder</em>) ved <strong>Nye linjer</strong>.</li>
+              <li>Tilføj handlingen <strong>Gentag med hver</strong> (for hvert element i <em>Opdel tekst</em>).</li>
+              <li>Inde i løkken: Tilføj <strong>Microsoft To Do → Tilføj opgave</strong>, sæt Titel til <em>Gentagelseselement</em>, og vælg din liste (f.eks. <em>Indkøb</em>).</li>
+            </ol>
+            <p class="modal-hint" style="margin-top:6px;">
+              Når genvejen findes på telefonen, kan du blot trykke på <strong>📲 iPhone Genvej</strong> øverst på indkøbslisten — så oprettes alle varer automatisk enkeltvis i Microsoft To Do!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="./recipes_data.js"></script>

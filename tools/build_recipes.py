@@ -682,10 +682,62 @@ def parse_legacy_markdown_recipe(filepath: str) -> Optional[Dict[str, Any]]:
     }
 
 
+def update_liste_af_retter(recipes: List[Dict[str, Any]]) -> None:
+    lines = ["# Liste af retter\n"]
+    for r in sorted(recipes, key=lambda x: x["title"].lower()):
+        lines.append(f"- [{r['title']}]({r['id']}.md)")
+    path = os.path.join(MD_DIR, "liste-af-retter.md")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print("Updated Markdown: recipes/liste-af-retter.md")
+
+
+def update_readme_recipe_list(recipes: List[Dict[str, Any]], yaml_count: int) -> None:
+    readme_path = os.path.join(BASE_DIR, "README.md")
+    if not os.path.exists(readme_path):
+        return
+    with open(readme_path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    # Update tree count
+    text = re.sub(
+        r"(├── recipes_yaml/\s+# ★ KILDEDATA \(Source of Truth\): )\d+( strukturerede YAML v2-opskrifter)",
+        rf"\g<1>{yaml_count}\g<2>",
+        text
+    )
+
+    # Update Opskrifter section
+    sorted_recipes = sorted(recipes, key=lambda x: x["title"].lower())
+    recipe_bullets = []
+    for r in sorted_recipes:
+        recipe_bullets.append(f"* [{r['title']}](recipes/{r['id']}.md) ([YAML](recipes_yaml/{r['id']}.yaml))")
+    new_bullets = "\n".join(recipe_bullets)
+
+    new_text = re.sub(
+        r"(## Opskrifter \()\d+( retter\)\n\n).*?(?=\n\nSe også|\Z)",
+        rf"\g<1>{len(recipes)}\g<2>{new_bullets}",
+        text,
+        flags=re.DOTALL
+    )
+    if new_text != text:
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(new_text)
+        print("Updated README: Aftensmadsretter/README.md")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Build Aftensmadsretter YAML -> PWA + Markdown")
     parser.add_argument("--write-md", action="store_true", help="Also write generated Markdown files for YAML recipes")
+    parser.add_argument("--skip-image-sync", action="store_true", help="Skip auto-syncing external image URLs to Files/images/")
     args = parser.parse_args()
+
+    # 0. Automatically sync and localize external images if present
+    if not args.skip_image_sync:
+        try:
+            import sync_images
+            sync_images.main()
+        except Exception as e:
+            print(f"Warning: sync_images failed: {e}")
 
     db = load_db()
     recipes: List[Dict[str, Any]] = []
@@ -743,6 +795,9 @@ def main():
         with open(summary_path, "w", encoding="utf-8") as sf:
             sf.write("\n".join(summary_lines) + "\n")
         print("Updated Markdown: recipes/nutrition-summary.md")
+
+        update_liste_af_retter(recipes)
+        update_readme_recipe_list(recipes, len(yaml_ids))
 
     os.makedirs(WEBAPP_DIR, exist_ok=True)
     out_js_path = os.path.join(WEBAPP_DIR, "recipes_data.js")

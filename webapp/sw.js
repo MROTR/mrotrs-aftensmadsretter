@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aftensmad-pwa-v2';
+const CACHE_NAME = 'aftensmad-pwa-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -25,6 +25,9 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
   event.respondWith(
     fetch(event.request)
       .then((res) => {
