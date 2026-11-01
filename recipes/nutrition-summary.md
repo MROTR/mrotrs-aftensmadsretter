@@ -7,12 +7,14 @@ Auto-genereret fra `recipes_yaml/*.yaml` med DTU Frida / custom næringsdata.
 | [Bagt ratatouille](bagt-ratatouille.md) | `bagt-ratatouille.yaml` | 194 | 248 | 78.3 | 3.1 | 13.7 | 14.4 | 6.0 |
 | [Beluga Bolognese](beluga-bolognese.md) | `beluga-bolognese.yaml` | 583 | 438 | 133.2 | 19.8 | 89.5 | 12.3 | 8.5 |
 | [Bolognese m. fake kød](bolognese-m-fake-koed.md) | `bolognese-m-fake-koed.yaml` | 597 | 454 | 131.6 | 27.1 | 77.5 | 17.3 | 12.0 |
+| [Butter paneer](butter-paneer.md) | `butter-paneer.yaml` | 1227 | 634 | 193.6 | 34.4 | 75.6 | 85.2 | 5.4 |
 | [Chana masala](chana-masala.md) | `chana-masala.yaml` | 570 | 543 | 104.8 | 17.1 | 85.5 | 14.7 | 12.7 |
 | [Chili sin carne](chili-sin-carne.md) | `chili-sin-carne.yaml` | 762 | 669 | 114.0 | 26.9 | 88.8 | 30.1 | 17.2 |
 | [Cremede kartofler](cremede-kartofler.md) | `cremede-kartofler.yaml` | 408 | 283 | 144.2 | 6.2 | 38.2 | 24.3 | 3.4 |
 | [Dhal](dhal.md) | `dhal.yaml` | 738 | 629 | 117.4 | 30.9 | 47.0 | 43.8 | 12.0 |
 | [Falafler](falafler.md) | `falafler.yaml` | 728 | 285 | 256.0 | 28.3 | 85.8 | 31.1 | 20.8 |
 | [Gryderet (Solsikkepige special)](gryderet-solsikkepige-special.md) | `gryderet-solsikkepige-special.yaml` | 331 | 531 | 62.3 | 11.9 | 48.3 | 8.1 | 12.0 |
+| [Grøntsagsdhal](groentsagsdhal.md) | `groentsagsdhal.yaml` | 786 | 759 | 103.6 | 26.5 | 80.6 | 35.8 | 15.0 |
 | [Harira](harira.md) | `harira.yaml` | 405 | 617 | 65.7 | 18.1 | 43.0 | 14.9 | 14.6 |
 | [Hvidkålssuppe](hvidkaalssuppe.md) | `hvidkaalssuppe.yaml` | 446 | 641 | 69.5 | 10.5 | 51.8 | 21.1 | 11.9 |
 | [Indiske ris](indiske-ris.md) | `indiske-ris.yaml` | 591 | 292 | 202.6 | 16.8 | 69.9 | 26.2 | 3.8 |
@@ -20,6 +22,8 @@ Auto-genereret fra `recipes_yaml/*.yaml` med DTU Frida / custom næringsdata.
 | [Kokosmælk Wok karry](kokosmaelk-wok-karry.md) | `kokosmaelk-wok-karry.yaml` | 617 | 547 | 112.7 | 16.9 | 82.9 | 21.6 | 12.7 |
 | [Linsekarry med ris](linsekarry-med-ris.md) | `linsekarry-med-ris.yaml` | 690 | 622 | 111.0 | 19.2 | 83.1 | 29.0 | 8.8 |
 | [Mexikansk risret](mexikansk-risret.md) | `mexikansk-risret.yaml` | 775 | 858 | 90.3 | 24.6 | 100.5 | 30.0 | 16.2 |
+| [Ovnbagt æggekage med grønt](ovnbagt-aeggekage-med-groent.md) | `ovnbagt-aeggekage-med-groent.yaml` | 566 | 456 | 124.0 | 27.7 | 47.4 | 27.3 | 10.7 |
+| [Pasta med græskarsauce](pasta-med-graeskarsauce.md) | `pasta-med-graeskarsauce.yaml` | 822 | 428 | 191.9 | 29.6 | 100.9 | 32.1 | 10.1 |
 | [Peanutbutter wok med nudler](peanutbutter-wok-med-nudler.md) | `peanutbutter-wok-med-nudler.yaml` | 912 | 685 | 133.1 | 38.3 | 80.7 | 45.0 | 16.4 |
 | [Quinoa i én pande med krydret paneer og grøntsager](one-pan-quinoa-with-spiced-paneer-and-vegetables.md) | `one-pan-quinoa-with-spiced-paneer-and-vegetables.yaml` | 597 | 446 | 133.8 | 24.9 | 51.9 | 31.9 | 8.4 |
 | [Red thai curry](red-thai-curry.md) | `red-thai-curry.yaml` | 893 | 672 | 132.9 | 18.0 | 80.9 | 52.1 | 10.7 |

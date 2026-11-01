@@ -1,0 +1,187 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: butter-paneer
+title: Butter paneer
+source: https://www.valdemarsro.dk/butter-paneer/
+image: ../Files/images/butter-paneer.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 35
+  active_min: 20
+tags:
+  - vegetar
+  - indisk
+  - paneer
+  - gryderet
+  - ris
+notes: "Klassisk indisk butter paneer med krydret, cremet tomat- og cashewsauce. Serveres med basmatiris og evt. naanbrød."
+
+components:
+  - id: butter_paneer_base
+    title: Til butter paneer
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        label: olie til stegning
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: smoer
+        item: smør
+        amount: 50
+        unit: g
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 4
+        unit: fed
+        prep: fintrevet
+      - ref: ingefaer
+        item: ingefær
+        amount: 15
+        unit: ml
+        display_unit: spsk
+        prep: fintrevet
+      - ref: garam_masala
+        item: garam masala
+        amount: 10
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: nellike
+        item: stødt nellike
+        label: stødt nellike
+        amount: 1
+        unit: knivspids
+      - ref: kardemomme
+        item: kardemomme
+        label: stødt kardemomme
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: chiliflager
+        item: chiliflager
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: gurkemeje
+        item: gurkemeje
+        label: stødt gurkemeje
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: cashews_sauce
+        item: cashewnødder
+        label: cashewnødder (til saucen)
+        amount: 50
+        unit: g
+      - ref: tomater
+        item: hakkede tomater
+        amount: 800
+        unit: g
+        display_unit: dåse
+        scaling: whole_unit
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: floede_sauce
+        item: piskefløde
+        label: piskefløde
+        amount: 200
+        unit: ml
+        display_unit: dl
+      - ref: paneer
+        item: paneer
+        amount: 450
+        unit: g
+        prep: skåret i tern
+      - ref: koriander_sauce
+        item: koriander
+        label: frisk koriander
+        amount: 0.5
+        unit: håndfuld
+        prep: finthakket, til saucen
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: ris_carb
+    title: Til servering (ris)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: ris
+        item: basmatiris
+        amount: 300
+        unit: ml
+        display_unit: dl
+
+  - id: naan_carb
+    title: Til servering (naanbrød)
+    role: carb
+    default_enabled: false
+    ingredients:
+      - ref: naan
+        item: naan
+        label: naanbrød
+        amount: 4
+        unit: stk
+        optional: true
+
+  - id: topping
+    title: Topping ved servering
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: cashews_top
+        item: cashewnødder
+        label: ristede cashewnødder
+        amount: 50
+        unit: g
+        prep: ristede
+      - ref: floede_top
+        item: piskefløde
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: smoer_top
+        item: smør
+        label: smørklat
+        amount: 25
+        unit: g
+      - ref: koriander_top
+        item: koriander
+        label: frisk koriander
+        amount: 0.5
+        unit: håndfuld
+        prep: grofthakket, til servering
+
+steps:
+  - section: Butter paneer
+    component_id: butter_paneer_base
+    items:
+      - "Kog {ris} efter anvisning på emballagen."
+      - "Varm en stor pande eller gryde op med {olie}. Tilsæt {smoer} og lad det bruse af ved middel varme."
+      - "Sautér {loeg}, {hvidloeg}, {ingefaer}, {garam_masala}, {nellike}, {kardemomme} og {chiliflager} i 4–5 minutter, til løgene er bløde og det dufter kraftigt."
+      - "Tilsæt {gurkemeje}, {cashews_sauce}, {tomater} og {bouillon}. Bring i kog under omrøring, skru ned til lav varme, læg låg på og lad det simre i 15 minutter."
+      - "Hæld cirka ¾ af saucen over i en blender og blend, til den er helt glat og cremet. Hæld den blendede sauce tilbage i gryden og rør den sammen med resten."
+      - "Tilsæt {floede_sauce} og smag til med salt og friskkværnet peber."
+      - "Skru ned til lav varme, vend {paneer} og {koriander_sauce} i saucen, læg låg på og lad det simre i 5–7 minutter, til paneerosten er gennemvarm og blød."
+      - "Varm evt. {naan} i ovnen eller på en tør pande."
+      - "Anret {ris} og butter paneer i dybe tallerkener. Dryp med en skefuld {floede_top}, læg en lille {smoer_top} på hver portion, og drys med {koriander_top} og {cashews_top}."

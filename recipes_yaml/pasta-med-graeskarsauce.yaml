@@ -1,0 +1,146 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: pasta-med-graeskarsauce
+title: Pasta med græskarsauce
+source: https://www.valdemarsro.dk/pasta-med-graeskarsauce/
+image: ../Files/images/pasta-med-graeskarsauce.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 35
+  active_min: 15
+tags:
+  - vegetar
+  - pasta
+  - græskar
+  - hokkaido
+  - linser
+  - hurtig
+notes: "Cremet græskarsauce med hokkaido, røde linser og varme krydderier blendet med piskefløde og citron. Serveres med pasta, ristede valnødder og parmesan."
+
+components:
+  - id: graeskar_base
+    title: Til græskarsauce
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.90
+    ingredients:
+      - ref: olie
+        item: olivenolie
+        amount: 30
+        unit: ml
+        display_unit: spsk
+        scaling: sublinear
+      - ref: loeg
+        item: løg
+        amount: 2
+        unit: stk
+        prep: finthakket
+      - ref: hvidloeg
+        item: hvidløg
+        amount: 2
+        unit: fed
+        prep: finthakket
+      - ref: graeskar
+        item: hokkaido
+        label: hokkaidogræskar
+        amount: 300
+        unit: g
+        prep: i små tern
+      - ref: linser
+        item: røde linser
+        amount: 100
+        unit: g
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: chiliflager
+        item: chiliflager
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: rosmarin
+        item: rosmarin
+        label: tørret rosmarin
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: fennikel
+        item: fennikelfrø
+        amount: 5
+        unit: ml
+        display_unit: tsk
+        scaling: sublinear
+      - ref: ingefaer
+        item: ingefær
+        amount: 10
+        unit: g
+        prep: fintrevet
+      - ref: floede
+        item: piskefløde
+        amount: 100
+        unit: ml
+        display_unit: dl
+      - ref: citron
+        item: citron
+        label: økologisk citron
+        amount: 1
+        unit: stk
+        prep: fintrevet skal og saft
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: pasta_carb
+    title: Til servering (pasta)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: pasta
+        item: pasta
+        amount: 400
+        unit: g
+
+  - id: topping
+    title: Topping ved servering
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: timian
+        item: timian
+        label: frisk timian
+        amount: 0.5
+        unit: håndfuld
+        prep: plukket
+      - ref: valnoedder
+        item: valnødder
+        label: valnøddekerner
+        amount: 50
+        unit: g
+        prep: grofthakkede
+      - ref: parmesan
+        item: parmesan
+        label: parmesan
+        amount: 75
+        unit: g
+        prep: friskrevet
+
+steps:
+  - section: Græskarsauce & pasta
+    component_id: graeskar_base
+    items:
+      - "Varm {olie} op i en gryde ved middel varme og sautér {loeg} i 5–6 minutter, til de er bløde og klare."
+      - "Tilsæt {hvidloeg}, {graeskar}, {linser}, {bouillon}, {chiliflager}, {rosmarin}, {fennikel} og {ingefaer}. Bring i kog."
+      - "Læg låg på og lad det simre ved svag varme i 20–25 minutter, til græskar og linser er helt møre."
+      - "Kog imens {pasta} i rigeligt letsaltet vand efter anvisningen på pakken, til den er al dente."
+      - "Hæld græskarblandingen i en blender og kør, til saucen er helt cremet og ensartet."
+      - "Tilsæt {floede} samt fintrevet skal fra {citron}, og blend igen kort."
+      - "Smag saucen godt til med friskpresset citronsaft, salt og friskkværnet peber."
+      - "Vend den varme afdryppede pasta sammen med græskarsaucen, og anret i dybe tallerkener."
+      - "Drys med {timian}, grofthakkede {valnoedder} og friskrevet {parmesan}."

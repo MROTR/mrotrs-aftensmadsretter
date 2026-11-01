@@ -8,7 +8,7 @@ Dette katalog indeholder hele opskriftssamlingen, næringsdatabasen (baseret på
 
 ```text
 Aftensmadsretter/
-├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 32 strukturerede YAML v2-opskrifter
+├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 36 strukturerede YAML v2-opskrifter
 ├── schemas/
 │   └── recipe.schema.json   # JSON Schema til VS Code auto-complete og validering af YAML-filer
 ├── tools/
@@ -119,17 +119,19 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 
 ---
 
-## Opskrifter (32 retter)
+## Opskrifter (36 retter)
 
 * [Bagt ratatouille](recipes/bagt-ratatouille.md) ([YAML](recipes_yaml/bagt-ratatouille.yaml))
 * [Beluga Bolognese](recipes/beluga-bolognese.md) ([YAML](recipes_yaml/beluga-bolognese.yaml))
 * [Bolognese m. fake kød](recipes/bolognese-m-fake-koed.md) ([YAML](recipes_yaml/bolognese-m-fake-koed.yaml))
+* [Butter paneer](recipes/butter-paneer.md) ([YAML](recipes_yaml/butter-paneer.yaml))
 * [Chana masala](recipes/chana-masala.md) ([YAML](recipes_yaml/chana-masala.yaml))
 * [Chili sin carne](recipes/chili-sin-carne.md) ([YAML](recipes_yaml/chili-sin-carne.yaml))
 * [Cremede kartofler](recipes/cremede-kartofler.md) ([YAML](recipes_yaml/cremede-kartofler.yaml))
 * [Dhal](recipes/dhal.md) ([YAML](recipes_yaml/dhal.yaml))
 * [Falafler](recipes/falafler.md) ([YAML](recipes_yaml/falafler.yaml))
 * [Gryderet (Solsikkepige special)](recipes/gryderet-solsikkepige-special.md) ([YAML](recipes_yaml/gryderet-solsikkepige-special.yaml))
+* [Grøntsagsdhal](recipes/groentsagsdhal.md) ([YAML](recipes_yaml/groentsagsdhal.yaml))
 * [Harira](recipes/harira.md) ([YAML](recipes_yaml/harira.yaml))
 * [Hvidkålssuppe](recipes/hvidkaalssuppe.md) ([YAML](recipes_yaml/hvidkaalssuppe.yaml))
 * [Indiske ris](recipes/indiske-ris.md) ([YAML](recipes_yaml/indiske-ris.yaml))
@@ -137,6 +139,8 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 * [Kokosmælk Wok karry](recipes/kokosmaelk-wok-karry.md) ([YAML](recipes_yaml/kokosmaelk-wok-karry.yaml))
 * [Linsekarry med ris](recipes/linsekarry-med-ris.md) ([YAML](recipes_yaml/linsekarry-med-ris.yaml))
 * [Mexikansk risret](recipes/mexikansk-risret.md) ([YAML](recipes_yaml/mexikansk-risret.yaml))
+* [Ovnbagt æggekage med grønt](recipes/ovnbagt-aeggekage-med-groent.md) ([YAML](recipes_yaml/ovnbagt-aeggekage-med-groent.yaml))
+* [Pasta med græskarsauce](recipes/pasta-med-graeskarsauce.md) ([YAML](recipes_yaml/pasta-med-graeskarsauce.yaml))
 * [Peanutbutter wok med nudler](recipes/peanutbutter-wok-med-nudler.md) ([YAML](recipes_yaml/peanutbutter-wok-med-nudler.yaml))
 * [Quinoa i én pande med krydret paneer og grøntsager](recipes/one-pan-quinoa-with-spiced-paneer-and-vegetables.md) ([YAML](recipes_yaml/one-pan-quinoa-with-spiced-paneer-and-vegetables.yaml))
 * [Red thai curry](recipes/red-thai-curry.md) ([YAML](recipes_yaml/red-thai-curry.yaml))

@@ -1,0 +1,121 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: ovnbagt-aeggekage-med-groent
+title: Ovnbagt æggekage med grønt
+source: https://www.valdemarsro.dk/ovnbagt-aeggekage-med-groent/
+image: ../Files/images/ovnbagt-aeggekage-med-groent.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 50
+  active_min: 20
+tags:
+  - vegetar
+  - æg
+  - ovnret
+  - kartofler
+  - grøntsager
+  - hverdagsmad
+notes: "Mættende og nem æggekage bagt i ovnen med broccoli, porre, kogte kartofler og soltørrede tomater. Serveres med rugbrød og frisk purløg."
+
+components:
+  - id: aeggekage_base
+    title: Til ovnbagt æggekage
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.95
+    ingredients:
+      - ref: smoer
+        item: smør
+        label: smør til fadet
+        amount: 10
+        unit: g
+      - ref: broccoli
+        item: broccoli
+        amount: 200
+        unit: g
+        prep: i små buketter
+      - ref: porre
+        item: porre
+        amount: 2
+        unit: stk
+        prep: i tynde ringe
+      - ref: spinat
+        item: spinat
+        label: babyspinat
+        amount: 50
+        unit: g
+      - ref: kartofler
+        item: kartoffel
+        label: kogte kartofler
+        amount: 300
+        unit: g
+        prep: kogte, afkølede og i tern
+      - ref: soltoerret_tomat
+        item: soltørrede tomater
+        label: soltørrede tomater i olie
+        amount: 50
+        unit: g
+        prep: finthakkede
+      - ref: aeg
+        item: æg
+        amount: 10
+        unit: stk
+      - ref: cremefraiche
+        item: creme fraiche 18
+        amount: 200
+        unit: ml
+        display_unit: dl
+      - ref: timian
+        item: timian
+        label: tørret timian
+        amount: 2.5
+        unit: ml
+        display_unit: tsk
+      - item: salt
+        label: Salt
+        amount: null
+      - item: peber
+        label: Friskkværnet peber
+        amount: null
+
+  - id: rugbroed_carb
+    title: Til servering (rugbrød)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: rugbroed
+        item: rugbrød
+        label: rugbrød
+        amount: 6
+        unit: stk
+        grams_override: 240
+
+  - id: topping
+    title: Topping ved servering
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: purloeg
+        item: purløg
+        amount: 100
+        unit: ml
+        display_unit: dl
+        prep: finthakket
+      - ref: persille
+        item: persille
+        label: frisk persille
+        amount: 0.5
+        unit: håndfuld
+        prep: finthakket (valgfrit)
+        optional: true
+
+steps:
+  - section: Ovnbagt æggekage
+    component_id: aeggekage_base
+    items:
+      - "Tænd ovnen på 175 grader varmluft. Smør et ovnfast fad med {smoer}."
+      - "Kom {broccoli}, {porre}, {spinat}, {kartofler} og {soltoerret_tomat} i fadet, og vend det godt rundt så fyldet er jævnt fordelt."
+      - "Slå {aeg} ud i en skål, tilsæt {cremefraiche}, {timian}, salt og friskkværnet peber, og pisk det godt sammen."
+      - "Hæld æggemassen over grøntsagerne i fadet."
+      - "Bag æggekagen midt i ovnen i 35–45 minutter, til æggemassen har sat sig helt og er gylden på toppen."
+      - "Tag fadet ud, drys med {purloeg} (og evt. lidt {persille}), og servér varm med {rugbroed}."
