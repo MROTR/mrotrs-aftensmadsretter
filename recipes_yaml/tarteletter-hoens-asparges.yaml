@@ -1,0 +1,115 @@
+# yaml-language-server: $schema=../schemas/recipe.schema.json
+id: tarteletter-hoens-asparges
+title: Tarteletter med høns i asparges
+source: https://www.valdemarsro.dk/tarteletter-hoens-asparges/
+image: ../Files/images/tarteletter-hoens-asparges.jpg
+servings: 4
+standard_kcal_per_portion: 650
+time:
+  total_min: 45
+  active_min: 30
+tags:
+  - kylling
+  - klassisk
+  - frokost
+  - restemad
+notes: "Klassisk dansk ret med hønsekød i hvid sauce med asparges, serveret i tarteletter. Hønsekødet kan koges af en hel suppehøne eller frosne hønsebryst. Uden for sæson kan dåseasparges bruges. Opskriften er fra Valdemarsro."
+
+components:
+  - id: hoens_base
+    title: Hønsekød og sauce
+    role: base
+    default_enabled: true
+    evaporation_factor: 0.95
+    ingredients:
+      - ref: hoensebryst
+        item: kyllingebryst
+        label: hønsebryst
+        amount: 400
+        unit: g
+        prep: kogt
+      - ref: bouillon
+        item: grøntsagsbouillon
+        amount: 300
+        unit: ml
+        display_unit: dl
+      - ref: gulerod
+        item: gulerod
+        amount: 1
+        unit: stk
+        prep: i tern
+      - ref: loeg
+        item: løg
+        amount: 1
+        unit: stk
+        prep: i tern
+      - ref: laurbaer
+        item: laurbærblade
+        amount: 2
+        unit: stk
+      - ref: peber_hel
+        item: peber
+        label: hele peberkorn (ca. 10)
+        amount: null
+      - ref: salt
+        item: salt
+        amount: null
+      - ref: smoer
+        item: smør
+        amount: 40
+        unit: g
+      - ref: hvedemel
+        item: hvedemel
+        amount: 30
+        unit: ml
+        display_unit: spsk
+      - ref: maelk
+        item: mælk
+        amount: 400
+        unit: ml
+        display_unit: dl
+      - ref: asparges
+        item: asparges
+        amount: 200
+        unit: g
+        prep: snittet
+
+  - id: tarteletter_carb
+    title: Til servering (tarteletter)
+    role: carb
+    default_enabled: true
+    ingredients:
+      - ref: tarteletter
+        item: tarteletter
+        amount: 12
+        unit: stk
+
+  - id: pynt_topping
+    title: Pynt
+    role: topping
+    default_enabled: true
+    ingredients:
+      - ref: persille
+        item: persille
+        amount: 1
+        unit: håndfuld
+      - ref: peber_pynt
+        item: peber
+        label: friskkværnet sort peber
+        amount: null
+
+steps:
+  - section: Hønsekød og sauce
+    component_id: hoens_base
+    items:
+      - "Kom {hoensebryst} i en gryde med {bouillon}, {gulerod}, {loeg}, salt, {peber_hel} og {laurbaer}. Lad det simrekoge i 15 minutter. Gem 3 dl kogevand til saucen."
+      - "Smelt {smoer} i en gryde og pisk {hvedemel} i til en melbolle. Pisk {maelk} i lidt ad gangen, til saucen er helt jævn."
+      - "Kog saucen op og lad den koge 1–2 minutter under omrøring. Smag til med salt og peber, og tynd evt. ud med kogevandet fra hønsekødet, til konsistensen er passende."
+      - "Damp {asparges} i kogende letsaltet vand i 3–4 minutter og dræn dem af."
+      - "Skær hønsekødet i tern og kom det sammen med {asparges} i saucen."
+
+  - section: Servering
+    component_id: tarteletter_carb
+    items:
+      - "Lun {tarteletter} i ovnen efter anvisning på pakken."
+      - "Fyld de lune tarteletter med saucen og pynt med {persille}. Kværn {peber_pynt} over og drys evt. med lidt flagesalt."

@@ -8,7 +8,7 @@ Dette katalog indeholder hele opskriftssamlingen, næringsdatabasen (baseret på
 
 ```text
 Aftensmadsretter/
-├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 36 strukturerede YAML v2-opskrifter
+├── recipes_yaml/            # ★ KILDEDATA (Source of Truth): 37 strukturerede YAML v2-opskrifter
 ├── schemas/
 │   └── recipe.schema.json   # JSON Schema til VS Code auto-complete og validering af YAML-filer
 ├── tools/
@@ -119,7 +119,7 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 
 ---
 
-## Opskrifter (36 retter)
+## Opskrifter (37 retter)
 
 * [Bagt ratatouille](recipes/bagt-ratatouille.md) ([YAML](recipes_yaml/bagt-ratatouille.yaml))
 * [Beluga Bolognese](recipes/beluga-bolognese.md) ([YAML](recipes_yaml/beluga-bolognese.yaml))
@@ -149,6 +149,7 @@ Hver fil i `recipes_yaml/` starter med schema-kommentaren `# yaml-language-serve
 * [Stenalderbrød](recipes/stenalderbroed.md) ([YAML](recipes_yaml/stenalderbroed.yaml))
 * [Svampe stroganoff](recipes/svampe-stroganoff.md) ([YAML](recipes_yaml/svampe-stroganoff.yaml))
 * [Svampelasagne](recipes/svampelasagne.md) ([YAML](recipes_yaml/svampelasagne.yaml))
+* [Tarteletter med høns i asparges](recipes/tarteletter-hoens-asparges.md) ([YAML](recipes_yaml/tarteletter-hoens-asparges.yaml))
 * [Thai rød karry med kylling](recipes/thai-red-curry-with-chicken.md) ([YAML](recipes_yaml/thai-red-curry-with-chicken.yaml))
 * [Thai rød karrypasta](recipes/thai-roed-karrypasta.md) ([YAML](recipes_yaml/thai-roed-karrypasta.yaml))
 * [Valdemarsro-style Pommes frites](recipes/valdemarsro-style-pommes-frites.md) ([YAML](recipes_yaml/valdemarsro-style-pommes-frites.yaml))

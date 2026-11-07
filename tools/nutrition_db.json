@@ -50,7 +50,8 @@
         "æg": 60,
         "kidneybønner_dåse": 240.0,
         "nachos": 125.0,
-        "tortillachips": 125.0
+        "tortillachips": 125.0,
+        "tarteletter": 20.0
     },
     "ingredients": {
         "__COMMENT_VEGETABLES__": "--- Vegetables ---",
@@ -3321,6 +3322,20 @@
             "hydration_factor": 1.0,
             "aisle": "kolonial",
             "unit_weight_g": 125.0
+        },
+        "tarteletter": {
+            "frida_id": null,
+            "frida_name": "Tarteletter, færdigkøbte (mørdej)",
+            "source": "custom",
+            "kcal": 450.0,
+            "protein": 6.0,
+            "fat": 27.0,
+            "carb": 42.0,
+            "fiber": 2.0,
+            "density_g_per_ml": 1.0,
+            "hydration_factor": 1.0,
+            "aisle": "broed",
+            "unit_weight_g": 20.0
         }
     },
     "schema_version": "2.0-dtu-frida-hybrid"

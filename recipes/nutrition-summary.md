@@ -32,6 +32,7 @@ Auto-genereret fra `recipes_yaml/*.yaml` med DTU Frida / custom næringsdata.
 | [Stenalderbrød](stenalderbroed.md) | `stenalderbroed.yaml` | 280 | 70 | 398.8 | 13.3 | 7.2 | 21.7 | 6.1 |
 | [Svampe stroganoff](svampe-stroganoff.md) | `svampe-stroganoff.yaml` | 465 | 392 | 118.7 | 11.7 | 59.2 | 18.6 | 7.8 |
 | [Svampelasagne](svampelasagne.md) | `svampelasagne.yaml` | 856 | 476 | 179.8 | 28.1 | 55.0 | 52.4 | 7.7 |
+| [Tarteletter med høns i asparges](tarteletter-hoens-asparges.md) | `tarteletter-hoens-asparges.yaml` | 561 | 427 | 131.4 | 32.4 | 38.8 | 29.4 | 3.7 |
 | [Thai rød karry med kylling](thai-red-curry-with-chicken.md) | `thai-red-curry-with-chicken.yaml` | 800 | 447 | 179.1 | 36.2 | 74.4 | 37.2 | 4.0 |
 | [Thai rød karrypasta](thai-roed-karrypasta.md) | `thai-roed-karrypasta.yaml` | 95 | 105 | 91.1 | 5.2 | 11.8 | 2.7 | 5.3 |
 | [Valdemarsro-style Pommes frites](valdemarsro-style-pommes-frites.md) | `valdemarsro-style-pommes-frites.yaml` | 576 | 398 | 144.6 | 8.0 | 63.7 | 30.4 | 5.6 |

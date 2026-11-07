@@ -28,6 +28,7 @@
 - [Stenalderbrød](stenalderbroed.md)
 - [Svampe stroganoff](svampe-stroganoff.md)
 - [Svampelasagne](svampelasagne.md)
+- [Tarteletter med høns i asparges](tarteletter-hoens-asparges.md)
 - [Thai rød karry med kylling](thai-red-curry-with-chicken.md)
 - [Thai rød karrypasta](thai-roed-karrypasta.md)
 - [Valdemarsro-style Pommes frites](valdemarsro-style-pommes-frites.md)
