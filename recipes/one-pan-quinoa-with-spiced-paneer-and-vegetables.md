@@ -1,5 +1,7 @@
 # Quinoa i én pande med krydret paneer og grøntsager
 
+![one-pan-quinoa-with-spiced-paneer-and-vegetables](../Files/images/one-pan-quinoa-with-spiced-paneer-and-vegetables.jpg)
+
 * Kilde: Egen opskrift
 * Antal: **2 pers.**
 * Tid i alt: **35 min.**

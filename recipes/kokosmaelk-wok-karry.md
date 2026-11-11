@@ -1,5 +1,7 @@
 # Kokosmælk Wok karry
 
+![kokosmaelk-wok-karry](../Files/images/kokosmaelk-wok-karry.jpg)
+
 * Kilde: Egen opskrift
 * Antal: **4 pers.**
 * Tid i alt: **25 min.**

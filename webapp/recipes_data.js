@@ -15237,7 +15237,7 @@ window.AFTENSMAD_DATA = {
       "title": "Kokosmælk Wok karry",
       "format": "yaml_v2",
       "source": "Egen opskrift",
-      "image": "",
+      "image": "../Files/images/kokosmaelk-wok-karry.jpg",
       "servings": 4,
       "standard_kcal_per_portion": 650,
       "time": {
@@ -21642,7 +21642,7 @@ window.AFTENSMAD_DATA = {
       "title": "Quinoa i én pande med krydret paneer og grøntsager",
       "format": "yaml_v2",
       "source": "Egen opskrift",
-      "image": "",
+      "image": "../Files/images/one-pan-quinoa-with-spiced-paneer-and-vegetables.jpg",
       "servings": 2,
       "standard_kcal_per_portion": 650,
       "time": {
