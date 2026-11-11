@@ -186,7 +186,7 @@ components:
   - id: ris_carb
     title: Til servering (ris - valgfrit)
     role: carb
-    default_enabled: false
+    default_enabled: true
     ingredients:
       - ref: ris
         item: basmatiris

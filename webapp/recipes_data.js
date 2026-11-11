@@ -7986,7 +7986,7 @@ window.AFTENSMAD_DATA = {
           "id": "ris_carb",
           "title": "Til servering (ris - valgfrit)",
           "role": "carb",
-          "default_enabled": false,
+          "default_enabled": true,
           "evaporation_factor": 1.0,
           "totals": {
             "raw_weight": 255.0,
@@ -8654,33 +8654,33 @@ window.AFTENSMAD_DATA = {
       "variants": [
         {
           "name": "Standard måltid (pr. 100 g spiseklar)",
-          "raw_weight": 95,
+          "raw_weight": 84,
           "cooked_weight": 100,
-          "kcal": 117.4,
-          "protein": 4.9,
-          "carb": 7.5,
-          "fat": 7.0,
-          "fiber": 1.9
+          "kcal": 122.4,
+          "protein": 4.5,
+          "carb": 12.3,
+          "fat": 5.6,
+          "fiber": 1.6
         },
         {
           "name": "Standard måltid (pr. portion, 1/4)",
-          "raw_weight": 599,
-          "cooked_weight": 629,
-          "kcal": 738,
-          "protein": 30.9,
-          "carb": 47.0,
-          "fat": 43.8,
-          "fiber": 12.0
+          "raw_weight": 663,
+          "cooked_weight": 788,
+          "kcal": 965,
+          "protein": 35.4,
+          "carb": 97.2,
+          "fat": 44.3,
+          "fiber": 12.8
         },
         {
           "name": "Standard måltid (hele opskriften)",
-          "raw_weight": 2395,
-          "cooked_weight": 2514,
-          "kcal": 2951,
-          "protein": 123.5,
-          "carb": 187.9,
-          "fat": 175.3,
-          "fiber": 47.8
+          "raw_weight": 2650,
+          "cooked_weight": 3152,
+          "kcal": 3859,
+          "protein": 141.6,
+          "carb": 388.8,
+          "fat": 177.1,
+          "fiber": 51.1
         },
         {
           "name": "Kun basisret (uden tilbehør) (pr. 100 g spiseklar)",

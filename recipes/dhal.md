@@ -12,9 +12,9 @@ Beregnede tal fra struktureret YAML-opskrift (både råvægt og estimeret spisek
 
 | Variant                                            | Råvægt (g) | Spiseklar (ca., g) |  kcal | Protein (g) | Kulhydrat (g) | Fedt (g) | Kostfibre (g) |
 | -------------------------------------------------- | ---------: | -----------------: | ----: | ----------: | ------------: | -------: | ------------: |
-| Standard måltid (pr. 100 g spiseklar)              |         95 |                100 | 117.4 |         4.9 |           7.5 |      7.0 |           1.9 |
-| Standard måltid (pr. portion, 1/4)                 |        599 |                629 |   738 |        30.9 |          47.0 |     43.8 |          12.0 |
-| Standard måltid (hele opskriften)                  |       2395 |               2514 |  2951 |       123.5 |         187.9 |    175.3 |          47.8 |
+| Standard måltid (pr. 100 g spiseklar)              |         84 |                100 | 122.4 |         4.5 |          12.3 |      5.6 |           1.6 |
+| Standard måltid (pr. portion, 1/4)                 |        663 |                788 |   965 |        35.4 |          97.2 |     44.3 |          12.8 |
+| Standard måltid (hele opskriften)                  |       2650 |               3152 |  3859 |       141.6 |         388.8 |    177.1 |          51.1 |
 | Kun basisret (uden tilbehør) (pr. 100 g spiseklar) |         94 |                100 | 124.8 |         5.2 |           8.2 |      7.3 |           2.1 |
 | Kun basisret (uden tilbehør) (pr. portion, 1/4)    |        502 |                532 |   664 |        27.7 |          43.6 |     38.7 |          11.3 |
 | Kun basisret (uden tilbehør) (hele opskriften)     |       2010 |               2129 |  2658 |       110.8 |         174.5 |    154.7 |          45.1 |
