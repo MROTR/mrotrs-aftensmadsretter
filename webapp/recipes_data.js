@@ -2011,7 +2011,7 @@ window.AFTENSMAD_DATA = {
       "title": "Bolognese m. fake kød",
       "format": "yaml_v2",
       "source": "Egen opskrift",
-      "image": "",
+      "image": "../Files/images/bolognese-m-fake-koed.jpg",
       "servings": 6,
       "standard_kcal_per_portion": 650,
       "time": {
@@ -24831,7 +24831,7 @@ window.AFTENSMAD_DATA = {
       "title": "Stenalderbrød",
       "format": "yaml_v2",
       "source": "https://www.madbanditten.dk/saftigt-kernebroed-med-hoejt-proteinindhold/",
-      "image": "",
+      "image": "../Files/images/stenalderbroed.jpg",
       "servings": 12,
       "standard_kcal_per_portion": 280,
       "time": {

@@ -1,5 +1,7 @@
 # Stenalderbrød
 
+![stenalderbroed](../Files/images/stenalderbroed.jpg)
+
 * Kilde: https://www.madbanditten.dk/saftigt-kernebroed-med-hoejt-proteinindhold/
 * Antal: **12 pers.**
 * Tid i alt: **70 min.**

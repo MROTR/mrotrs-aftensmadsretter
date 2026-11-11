@@ -1,5 +1,7 @@
 # Bolognese m. fake kød
 
+![bolognese-m-fake-koed](../Files/images/bolognese-m-fake-koed.jpg)
+
 * Kilde: Egen opskrift
 * Antal: **6 pers.**
 * Tid i alt: **90–120 min.**
